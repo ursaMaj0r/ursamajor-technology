@@ -48,7 +48,7 @@ jobs:
       - name: Install and Build 🔧
         run: npm install && npm run prod && npm run build 
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
