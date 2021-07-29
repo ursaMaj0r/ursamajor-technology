@@ -34,6 +34,8 @@ jobs:
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: npm run prod
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: bundle exec jekyll build
       - uses: peaceiris/actions-gh-pages@v3
         with:
