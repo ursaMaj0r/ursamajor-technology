@@ -11,3 +11,6 @@ exclude:
   - README.md
   - LICENSE
   - Makefile
+
+include:
+- node_modules
