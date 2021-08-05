@@ -3,7 +3,6 @@ description: PowerShell Blog
 permalink: /:slugified_categories/:title/
 url: https://ursamajor.technology
 github_username: ursaMaj0r
-root: ursamajor.technology
 
 date_format: "%b %-d, %Y"
 
