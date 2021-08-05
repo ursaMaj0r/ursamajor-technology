@@ -47,13 +47,14 @@ jobs:
             ${{ runner.os }}-gems-
 
       - name: Build
-        run: npm install && npm run prod && npm run build 
+        run: npm install && npm run prod && npm run build
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Deploy
-      - run: bundle exec jekyll build
-      - uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./_site
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: _site
+          CLEAN: true
