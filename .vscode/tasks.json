@@ -5,10 +5,10 @@
     "tasks": [
         {
             "label": "Jekyll: Build Dev",
-            "detail": "bundle install && npm install && npm run dev && npm start",
+            "detail": ". ./.env.local && bundle install && npm install && npm run dev && npm start",
             "type": "shell",
             "linux": {
-                "command": "bundle install && npm install && npm run dev && npm start"
+                "command": ". ./.env.local && bundle install && npm install && npm run dev && npm start"
             },
             "group": {
                 "kind": "build",
