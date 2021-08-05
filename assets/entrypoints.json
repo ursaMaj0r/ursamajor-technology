@@ -9,6 +9,11 @@
       "css": [
         "/assets/css/app.css"
       ]
+    },
+    "css/main": {
+      "css": [
+        "/assets/css/main.css"
+      ]
     }
   }
 }
