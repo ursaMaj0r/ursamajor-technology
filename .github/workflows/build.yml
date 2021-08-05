@@ -6,7 +6,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
-      - 'build.yml'
+      - '.github/workflows/*.*'
       - '_drafts/*.*'
       - '.vscode/*.*'
 
