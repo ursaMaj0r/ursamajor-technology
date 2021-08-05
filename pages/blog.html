@@ -1,0 +1,35 @@
+---
+layout: default
+permalink: /blog
+title: Home
+---
+<main>
+    <div>
+        <h2 class="drac-heading drac-heading-2xl drac-text-cyan">
+            #AutomateEverything
+        </h2>
+    </div>
+    <div class="grid grid-cols-1 gap-4 lg:col-span-4"></div>
+    {% for post in site.posts %}
+    <div variant="subtle" class="drac-box drac-card drac-bg-yellow-pink drac-p-sm drac-m-sm">
+        <span class="drac-text drac-line-height drac-text-yellow"></span>
+        <div class="p-6">
+            {%- assign date_format = site.date_format | default: "%-d %b" -%}
+            <a href="{{ post.url | relative_url }}">
+                <h2 class="drac-heading drac-heading-xl drac-text-black-secondary">
+                    {{ post.title | escape }}
+                </h2>
+            </a>
+            <div class="drac-text-black-secondary">Posted: <font class="drac-text-purple">{{ post.date |
+                    date:
+                    date_format }}</font>
+            </div>
+            <div class="markdown-body drac-text drac-line-height drac-text-black">
+                {{ post.excerpt }}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    </div>
+</main>

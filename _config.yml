@@ -1,6 +1,6 @@
 title: Ursamajor.technology
 description: PowerShell Blog
-permalink: /:slugified_categories/:title/
+permalink: /:year/:month/:day/:title/
 url: https://ursamajor.technology
 github_username: ursaMaj0r
 
