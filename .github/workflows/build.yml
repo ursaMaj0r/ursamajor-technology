@@ -1,5 +1,5 @@
 
-name: Deploy to GitHub Pages
+name: Deploy to WWW
 on:
   push:
     branches:
