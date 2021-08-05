@@ -6,7 +6,7 @@ on:
       - main
     paths-ignore:
       - 'README.md'
-      - 'pages.yml'
+      - 'build.yml'
       - '_drafts/*.*'
       - '.vscode/*.*'
 
