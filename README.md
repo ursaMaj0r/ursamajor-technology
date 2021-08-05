@@ -41,4 +41,4 @@ If you want to start creating posts and pages, we've included the
 ## Deploying
 
 Includes configuration for deploying to [Netlify](https://www.netlify.com/) and
-[GitHub Pages](https://pages.github.com/) (via GitHub Actions).
+[GitHub Pages](https://pages.github.com/) (via GitHub Actions). 
