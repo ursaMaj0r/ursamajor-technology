@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/assets/css/main.css" rel="stylesheet">
 
-  <title>Home</title>
+  <title>Test Post</title>
 </head>
 
 <body class="drac-bg-black"><div class="drac-box">
@@ -22,13 +22,23 @@
                 <a class="drac-tab-link drac-text" href="/blog">Blog</a>
             </li>
         </ul>
-    </div><main>
-    <div>
-        <h2 class="drac-heading drac-heading-2xl drac-text-orange">
-            Ursa Major Technology
-        </h2>
-    </div>
-</main>
+    </div><article itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 itemprop="name headline">Test Post</h1>
+    <p><time datetime="2021-08-05T00:00:00+00:00" itemprop="datePublished">
+        Aug 5, 2021
+      </time>
+    </p>
+  </header>
+
+  <div class="prose prose-sm lg:prose-lg xl:prose-xl" itemprop="articleBody">
+    <p>Here’s a test post!</p>
+
+  </div>
+
+  <a href="/2021/08/05/test-post/" hidden></a>
+</article>
+
 </body>
 
 </html>
