@@ -5,6 +5,7 @@
         "dev": "encore dev",
         "localenv": ". ./.env.local",
         "prod": "encore prod",
+        "build": "bundle exec jekyll build",
         "watch:webpack": "encore dev --watch",
         "watch:jekyll": "bundle exec jekyll serve --livereload --drafts --open",
         "lint": "eslint --cache .",
