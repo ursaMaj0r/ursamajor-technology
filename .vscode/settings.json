@@ -1,4 +1,5 @@
 {
     "xd.globalEditor": false,
-    "xd.lastPackage": "/workspaces/www-ursamajor-technology/node_modules/@dracula/dracula-ui/dsp"
+    "xd.lastPackage": "/workspaces/www-ursamajor-technology/node_modules/@dracula/dracula-ui/dsp",
+    "editor.formatOnSave": false
 }
