@@ -7,13 +7,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/assets/css/main.css" rel="stylesheet">
-
-  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/css/custom.css">
 </head>
 
 <body class="drac-bg-black">
   {%- include nav.html -%}
   {{ content }}
 </body>
+
+<footer>{%- include footer.html -%}</footer>
+
 
 </html>

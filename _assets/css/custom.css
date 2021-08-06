@@ -1,0 +1,63 @@
+.custom-about-cardItem {
+    float: left;
+    margin: auto;
+
+}
+
+.custom-about-cardItem2 {
+    float: right;
+    margin: auto;
+}
+
+.custom-about-text1 {
+    margin: 8px;
+}
+
+.custom-about-text2 {
+    margin: 5px;
+    padding: 1%;
+}
+
+.custom-about-link a:link {
+    text-decoration: none;
+    color: #F8F8F2
+}
+
+.custom-about-link a:visited {
+    text-decoration: none;
+    color: #F8F8F2
+}
+
+.custom-about-link a:hover {
+    text-decoration: underline;
+    color: #F8F8F2
+}
+
+.custom-about-link a:active {
+    text-decoration: underline;
+    color: #F8F8F2
+}
+
+.custom-footer-link a:link {
+    text-decoration: none;
+    color: #80FFEA
+}
+
+.custom-footer-link a:visited {
+    text-decoration: none;
+    color: #80FFEA
+}
+
+.custom-footer-link a:hover {
+    text-decoration: underline;
+    color: #80FFEA
+}
+
+.custom-footer-link a:active {
+    text-decoration: underline;
+    color: #80FFEA
+}
+
+.drac-bg-orange-red{
+    background:linear-gradient(var(--gradientDegree),var(--orange) 0,var(--red) 100%)
+  }

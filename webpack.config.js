@@ -11,6 +11,7 @@ Encore
   .setPublicPath('/assets')
   .addStyleEntry('css/app', './_assets/css/app.css')
   .addStyleEntry('css/main', './_assets/css/main.css')
+  .addStyleEntry('css/custom', './_assets/css/custom.css')
   .addEntry('js/app', './_assets/js/app.js')
   .enablePostCssLoader()
   .disableSingleRuntimeChunk()
