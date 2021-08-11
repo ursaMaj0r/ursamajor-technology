@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+</head>
+
+<body class="drac-bg-black"><div>
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs"><a href="/">Home</a></button>
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs"><a href="/about">About</a></button>
+</div><article itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 class="drac-heading drac-heading-2xl drac-text-orange drac-text-center" itemprop="name headline">PS Clockify Part 1: Getting Started</h1>
+    <p class="drac-text drac-text-center drac-text-cyan"><time datetime="2021-08-11T00:00:00+00:00" itemprop="datePublished">
+        Aug 11, 2021
+      </time>
+    </p>
+  </header>
+  <div class="drac-text drac-text-white drac-text-center drac-text-lg" itemprop="articleBody">
+    
+    <span><a href="/assets/images/posts/psclockify/title-image.png" title="Opening Image"><img src="/assets/images/posts/psclockify/title-image.png" width="25%" alt="PS Clockify Part 1: Getting Started"></a></span> 
+      
+    <div class="drac-text drac-m-lg drac-text-sm custom-footer-link">
+    <p>Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</p>
+
+<!--more-->
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+<p>Time remains one of the few things in life that is impervious to outside influence. Everyday we are all alloted the same 24 hours to do with as we please. Being able to properly manage time can boost productivity and efficiency. About a year ago, I wrote a PowerShell API wrapper for Clockify, a free time management tool and wanted to take the time to show how it can be used to juggle the many day to day challenges we are faced with. We will start with importing and using the module and end up with a Power BI Dashboard that can be used to visually see where you are spending most of your time.</p>
+
+<p><br /></p>
+
+<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Setting Up Clockify</h2>
+<p>First, we will need to create a Clockify account, which can be done <a href="https://clockify.me/signup">here</a>.
+<br /><img src="/assets/images/posts/psclockify/signup.png" width="75%" /></p>
+
+<p>Next let’s generate an API key by clicking on the avatar at the top right and then <strong>Profile Settings</strong> or by navigating directly to <a href="https://clockify.me/user/settings">https://clockify.me/user/settings</a>. Scroll to the bottom of the page and click <strong>Generate</strong>.
+<br /><img src="/assets/images/posts/psclockify/api.png" width="75%" /></p>
+
+<p>Finally, we will need the workspace name. This can be found on the <strong>General tab of Settings</strong> or to the left of the upgrade button on the top bar. Feel free to edit the name to be whatever you like.
+<br /><img src="/assets/images/posts/psclockify/workspace.png" width="75%" /></p>
+
+<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Installing the Module</h2>
+<p><a href="https://github.com/ursaMaj0r/PSClockify">Source Code</a> - The module was written with PS Core and works on both Mac and Windows!</p>
+
+<p>Let’s download the code and import it as a PowerShell module using the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iex ('$module="";$user="UrsaMaj0r";$repo="PSClockify"'+(new-object net.webclient).DownloadString('https://raw.githubusercontent.com/PsModuleInstall/InstallFromGithub/master/install.ps1'))  
+
+Import-Module PSClockify
+</code></pre></div></div>
+<p><br /><img src="/assets/images/posts/psclockify/install.png" width="75%" /></p>
+
+<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Using the Module</h2>
+
+<h3 id="connect-to-clockify-workspace">Connect to Clockify Workspace</h3>
+<p>Let’s get connected to Clockify by running the following command (replacing with your API Key and Workspace name from above). If you want to confirm that you are connected, you can run the <em>Test-Session</em> command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connect-Session -APIKey 'api_key_here' -Workspace 'MyAwesomeWorkspace'
+</code></pre></div></div>
+<p><br /><img src="/assets/images/posts/psclockify/connection.png" width="75%" /></p>
+
+<h3 id="creating-stuff">Creating Stuff</h3>
+<p>Let’s get started by creating a project called chores. We can do that using the module with the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-Project -name 'Chores' -note 'A project to track weekly chores around the house'
+</code></pre></div></div>
+
+<p>And we can’t forget to add some tasks to the project:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-Task -name Dishes -Project Chores
+New-Task -name Trash -Project Chores
+New-Task -name Laundry -Project Chores
+</code></pre></div></div>
+<p><br /><img src="/assets/images/posts/psclockify/create-stuff.png" width="75%" /></p>
+
+<h3 id="event-tracking">Event Tracking</h3>
+<p>Lastly, we need to be able to track the time we spend on each task. Let’s track some time doing laundry!</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Start-Timer -project Chores -description 'Too many socks!!!' -task Laundry
+</code></pre></div></div>
+
+<p>And when we are finished, we can simply run <em>Stop-Timer</em>.
+<br /><img src="/assets/images/posts/psclockify/timer.png" width="75%" /></p>
+
+<h3 id="and-more">And More</h3>
+<p>The module can be used to do pretty much anything you can do in the UI. Try playing around with some other commands to create, set, or delete any object (Clients, Projects, Tags, Tasks, and Timers)!</p>
+
+<blockquote>
+  <p>Examples:</p>
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Client -Identity "Calli" -OutputType Detailed
+Set-Timer -RestartTimer
+New-Tag -Name "Chores"
+</code></pre></div>  </div>
+</blockquote>
+
+<h3 id="disconnecting-a-session">Disconnecting a Session</h3>
+<p>When you are finished working with Clockify, the following command can be used to log out:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Disconnect-Session
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<h1 id="stay-tuned-for-part-two">Stay tuned for part two!</h1>
+</div>  
+  </div>
+  <a href="/2021/08/11/psclockify-pt1/" hidden></a>
+</article>
+</body>
+
+<footer><footer>
+    <div
+        class="custom-footer custom-footer-link drac-text drac-text-xs drac-text-center drac-line-height drac-text-cyan drac-p-lg">
+        <p>ursamajor.technology © 2021</p>
+        <p>Powered by GitHub, Mary Lou's, and <a href="https://github.com/ursaMaj0r/www-ursamajor-technology">Code</a>.
+        </p>
+    </div>
+</footer></footer>
+
+
+</html>
