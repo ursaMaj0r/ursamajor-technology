@@ -1,0 +1,27 @@
+<div>    
+    <div>
+        <h2 class="drac-heading drac-text-center drac-heading-xl drac-p-md drac-text-white">
+            Automate Everything! A blog about Microsoft, Cybersecurity and Automation
+        </h2>
+    </div>
+    <div>
+    {%- for post in site.posts -%}
+        {% if post.tags contains 'Automate Everything' %}
+            <div class="drac-box drac-card drac-bg-orange-red drac-p-md drac-m-sm">
+                {%- assign date_format = site.date_format | default: "%-d %b" -%}
+                <a href="{{ post.url | relative_url }}">
+                    <h2 class="drac-heading drac-heading-xl drac-text-black">
+                        {{ post.title | escape }}
+                    </h2>
+                </a>
+                <div class="drac-text-black-secondary">Posted on <font class="drac-text-white"> {{ post.date | date:
+                        date_format }}.</font>
+                </div>
+                <div class="markdown-body drac-text drac-line-height drac-text-black">
+                    {{ post.excerpt }}
+                </div>
+            </div>
+        {% endif %}
+    {%- endfor -%}
+    </div>
+</div>
