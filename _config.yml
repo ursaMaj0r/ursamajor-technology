@@ -3,8 +3,15 @@ description: PowerShell Blog
 permalink: /:year/:month/:day/:title/
 url: https://ursamajor.technology
 github_username: ursaMaj0r
-
 date_format: "%b %-d, %Y"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+  - jekyll-archives
 
 exclude:
   - "package*.json"
@@ -16,3 +23,30 @@ exclude:
 
 include:
 - node_modules
+
+# defaults
+jekyll_compose:
+  default_front_matter:
+    drafts:
+      id: 000
+      author: ursaMaj0r
+      views: 0
+      image:
+      categories:
+      tags:
+    posts:
+      id: 000
+      author: ursaMaj0r
+      views: 0
+      image:
+      categories:
+      tags:
+
+# plugin configs
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: archive-categories
+  permalinks:
+    category: '/category/:name/'

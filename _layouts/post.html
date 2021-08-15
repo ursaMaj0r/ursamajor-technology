@@ -2,18 +2,23 @@
 layout: default
 ---
 <article itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
+  <div style="text-align:center;">
+    {% if page.image %}
+    <span><a href="{{ page.image }}" title="Opening Image"><img src="{{ page.image }}" width="25%" alt="{{ page.title }}"></a></span> 
+    {% endif %}
+  </div>
+  <div class=" custom-footer-link drac-text drac-text-center">
+    {%- include infra/page-categories.html -%}
+  </div>
+  <div>
     <p class="drac-text drac-text-center drac-text-cyan">
       {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: date_format }}
       </time>
     </p>
-  </header>
+  </div>
   <div class="drac-text drac-text-white drac-text-center drac-text-lg" itemprop="articleBody">
-    {% if page.image %}
-    <span><a href="{{ page.image }}" title="Opening Image"><img src="{{ page.image }}" width="25%" alt="{{ page.title }}"></a></span> 
-    {% endif %}  
     <div class="drac-text drac-m-lg drac-text-sm custom-footer-link">
     {{ content }}</div>  
   </div>

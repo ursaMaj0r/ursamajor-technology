@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="drac-bg-black">
+  <article class="drac-text drac-line-height line-numbers">
+      <ul class="posts">
+          {% for post in page.posts %}
+          <div class="drac-box drac-card drac-bg-orange-red drac-p-md drac-m-sm">
+            {%- assign date_format = site.date_format | default: "%-d %b" -%}
+            <a href="{{ post.url | relative_url }}">
+                <h2 class="drac-heading drac-heading-xl drac-text-black">
+                    {{ post.title | escape }}
+                </h2>
+            </a>
+            <div class="drac-text-black-secondary">Posted on <font class="drac-text-white"> {{ post.date | date:
+                    date_format }}.</font>
+            </div>
+            <div class="markdown-body drac-text drac-line-height drac-text-black">
+                {{ post.excerpt }}
+            </div>
+        </div>
+        {% endfor %}
+  </article>
+</div>

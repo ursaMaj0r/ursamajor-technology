@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <h2 class="drac-heading drac-heading-md drac-text-orange drac-p-sm">
+            {{page.title}}
+        </h2>
+    </div>
+    <div class="drac-text drac-text-md drac-text-white">
+        {%- assign sorted_cats = page.categories | sort -%} 
+        {%- assign cat_array = '' | split:',' -%} 
+        {% for category in sorted_cats %} 
+            {%- capture cat_name -%}
+            <a href="/category/{{ category | slugify }}/" class="drac-text">{{- category | replace: "-", " " -}}</a> 
+            {%- endcapture -%} 
+            {%- assign cat_array = cat_array | push: cat_name -%} 
+        {% endfor %}
+        Topics: {{ cat_array | array_to_sentence_string: '' -}}
+    </div>
+</div>
