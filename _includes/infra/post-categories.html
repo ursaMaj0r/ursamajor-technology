@@ -1,0 +1,11 @@
+<div>
+    {%- assign sorted_cats = post.categories | sort -%} 
+    {%- assign cat_array = '' | split:',' -%} 
+    {% for category in sorted_cats %} 
+        {%- capture cat_name -%}
+        <a href="/category/{{ category | slugify }}/" class="drac-text">{{- category | replace: "-", " " -}}</a> 
+        {%- endcapture -%} 
+        {%- assign cat_array = cat_array | push: cat_name -%} 
+    {% endfor %}
+    Topics: {{ cat_array | array_to_sentence_string: '' -}}
+</div>
