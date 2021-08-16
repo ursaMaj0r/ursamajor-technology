@@ -35,6 +35,18 @@
   .drac-bg-orange-red{
     background:linear-gradient(var(--gradientDegree),var(--orange) 0,var(--red) 100%)
   }
+
+  .drac-text-orange-red{
+    -webkit-text-fill-color:transparent;
+    -moz-text-fill-color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+    -moz-background-clip:text;
+    background-image:linear-gradient(var(--gradientDegree),var(--orange) 0,var(--red) 100%);
+    background-size:100%;
+    -webkit-box-decoration-break:clone
+  }
+
   
   .custom-mobile-skipfloat {
     float: none;

@@ -4,7 +4,7 @@ title: 'PS Clockify Part 1: Getting Started'
 author: Jeff
 image: /assets/images/posts/psclockify/title-image.png
 categories:
-    - Personal Productivity
+    - Productivity
     - PowerShell
     - Clockify
 tags:
