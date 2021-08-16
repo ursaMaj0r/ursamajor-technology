@@ -9,9 +9,9 @@
     <div>
     {%- for post in site.posts -%}
         {% if post.tags contains 'Automate Everything' %}
-            <div class="drac-box drac-card drac-bg-orange-red drac-p-md drac-m-sm">
+            <div class="custom-link-white drac-box drac-card drac-bg-orange-red drac-p-md drac-m-sm">
                 {%- assign date_format = site.date_format | default: "%-d %b" -%}
-                <a href="{{ post.url | relative_url }}">
+                <a href="{{ post.url | relative_url }}" >
                     <h1 class="drac-heading drac-heading-xl drac-text-black">
                         {{ post.title | escape }}
                     </h1>
