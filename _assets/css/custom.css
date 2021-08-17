@@ -50,10 +50,16 @@
   
   .custom-mobile-skipfloat {
     float: none;
+    text-align: center;
+  }
+
+  .custom-home-padding {
+    margin-left: 20%;
   }
   
   @media (min-width: 50em) {
     .custom-mobile-skipfloat {
       float: left;
+      text-align: center;
     }
   }
