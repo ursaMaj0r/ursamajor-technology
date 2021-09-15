@@ -60,6 +60,10 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
+    minima (2.5.1)
+      jekyll (>= 3.5, < 5.0)
+      jekyll-feed (~> 0.9)
+      jekyll-seo-tag (~> 2.1)
     nuggets (1.6.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -90,6 +94,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-tagging-related_posts
+  minima
   webrick
 
 BUNDLED WITH

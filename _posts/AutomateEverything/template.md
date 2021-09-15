@@ -4,7 +4,7 @@ title: Template
 date: 2000-01-01 00:00 +0000
 id: 00
 author: Jeff
-image: /assets/images/posts/psclockify/title-image.png
+image: /assets/images/posts/
 views: 0
 categories:
     - General
