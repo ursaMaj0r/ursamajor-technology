@@ -46,10 +46,12 @@
       </time>
     </p>
   </div>
-  <div class="drac-text drac-text-white drac-text-center drac-text-lg" itemprop="articleBody">
-    <div class="drac-text drac-m-lg drac-text-sm custom-link-cyan">
-    <p>Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</p>
+  <div class="drac-text drac-text-white drac-text-center drac-text-sm drac-m-lg custom-link-cyan" style="width:50% + 1vw" itemprop="articleBody">
+      <p>Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</p>
 
+  </div>
+  <div class="drac-text drac-text-white custom-link-cyan  drac-text-sm drac-m-lg" style="width:50% + 1vw" itemprop="articleBody">
+      
 <!--more-->
 <p><br /></p>
 
@@ -58,7 +60,7 @@
 
 <p><br /></p>
 
-<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Setting Up Clockify</h2>
+<h2 class="drac-heading drac-heading-xl drac-text-orange">Setting Up Clockify</h2>
 <p>First, we will need to create a Clockify account, which can be done <a href="https://clockify.me/signup">here</a>.
 <br /><img src="/assets/images/posts/psclockify/signup.png" width="75%" /></p>
 
@@ -68,42 +70,36 @@
 <p>Finally, we will need the workspace name. This can be found on the <strong>General tab of Settings</strong> or to the left of the upgrade button on the top bar. Feel free to edit the name to be whatever you like.
 <br /><img src="/assets/images/posts/psclockify/workspace.png" width="75%" /></p>
 
-<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Installing the Module</h2>
+<h2 class="drac-heading drac-heading-xl drac-text-orange">Installing the Module</h2>
 <p><a href="https://github.com/ursaMaj0r/PSClockify">Source Code</a> - The module was written with PS Core and works on both Mac and Windows!</p>
 
-<p>Let’s download the code and import it as a PowerShell module using the following code:</p>
+<p>Let’s download the code and import it as a PowerShell module using the following code:
+<script src="https://gist.github.com/ursaMaj0r/33e970b84c9ea884a2f8b1cbdfb752a5.js"></script></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iex ('$module="";$user="UrsaMaj0r";$repo="PSClockify"'+(new-object net.webclient).DownloadString('https://raw.githubusercontent.com/PsModuleInstall/InstallFromGithub/master/install.ps1'))  
-
-Import-Module PSClockify
-</code></pre></div></div>
 <p><br /><img src="/assets/images/posts/psclockify/install.png" width="75%" /></p>
 
-<h2 class="drac-heading drac-text-center drac-heading-xl drac-text-orange">Using the Module</h2>
+<h2 class="drac-heading drac-heading-xl drac-text-orange">Using the Module</h2>
 
 <h3 id="connect-to-clockify-workspace">Connect to Clockify Workspace</h3>
-<p>Let’s get connected to Clockify by running the following command (replacing with your API Key and Workspace name from above). If you want to confirm that you are connected, you can run the <em>Test-Session</em> command.</p>
+<p>Let’s get connected to Clockify by running the following command (replacing with your API Key and Workspace name from above). If you want to confirm that you are connected, you can run the <em>Test-Session</em> command.
+<script src="https://gist.github.com/ursaMaj0r/8676fbb9741615b63992ae360654c43b.js"></script></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connect-Session -APIKey 'api_key_here' -Workspace 'MyAwesomeWorkspace'
-</code></pre></div></div>
 <p><br /><img src="/assets/images/posts/psclockify/connection.png" width="75%" /></p>
 
 <h3 id="creating-stuff">Creating Stuff</h3>
 <p>Let’s get started by creating a project called chores. We can do that using the module with the following command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-Project -name 'Chores' -note 'A project to track weekly chores around the house'
-</code></pre></div></div>
 
-<p>And we can’t forget to add some tasks to the project:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-Task -name Dishes -Project Chores
-New-Task -name Trash -Project Chores
-New-Task -name Laundry -Project Chores
-</code></pre></div></div>
+<script src="https://gist.github.com/ursaMaj0r/0722d1e01fee80990d6068060b3fe64b.js"></script>
+
+<p>And we can’t forget to add some tasks to the project:
+<script src="https://gist.github.com/ursaMaj0r/9c684f21c70ac02023ba3f194043e907.js"></script></p>
+
 <p><br /><img src="/assets/images/posts/psclockify/create-stuff.png" width="75%" /></p>
 
 <h3 id="event-tracking">Event Tracking</h3>
 <p>Lastly, we need to be able to track the time we spend on each task. Let’s track some time doing laundry!</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Start-Timer -project Chores -description 'Too many socks!!!' -task Laundry
-</code></pre></div></div>
+
+<script src="https://gist.github.com/ursaMaj0r/121ceeb238742e35127188218f12da89.js"></script>
 
 <p>And when we are finished, we can simply run <em>Stop-Timer</em>.
 <br /><img src="/assets/images/posts/psclockify/timer.png" width="75%" /></p>
@@ -112,23 +108,19 @@ New-Task -name Laundry -Project Chores
 <p>The module can be used to do pretty much anything you can do in the UI. Try playing around with some other commands to create, set, or delete any object (Clients, Projects, Tags, Tasks, and Timers)!</p>
 
 <blockquote>
-  <p>Examples:</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Client -Identity "Calli" -OutputType Detailed
-Set-Timer -RestartTimer
-New-Tag -Name "Chores"
-</code></pre></div>  </div>
+  <p>Examples:
+<script src="https://gist.github.com/ursaMaj0r/18d0d25594320b22a60d30aeb496bed6.js"></script></p>
 </blockquote>
 
 <h3 id="disconnecting-a-session">Disconnecting a Session</h3>
-<p>When you are finished working with Clockify, the following command can be used to log out:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Disconnect-Session
-</code></pre></div></div>
+<p>When you are finished working with Clockify, the following command can be used to log out:
+<script src="https://gist.github.com/ursaMaj0r/c638b8f4f5b5ccdffc2ee7a8c3250e9c.js"></script></p>
 
 <p><br />
 <br /></p>
 
 <h1 id="stay-tuned-for-part-two">Stay tuned for part two!</h1>
-</div>  
+
   </div>
   <a href="/2021/08/11/psclockify-pt1/" hidden></a>
 </article>
