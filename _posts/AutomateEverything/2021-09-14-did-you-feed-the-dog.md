@@ -20,8 +20,7 @@ Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like 
 
 # Background
 Calli the dog has always been motivated by one thing in life: food. In fact, it motivates her so much she has been know to ask for breakfast *one human at a time.* Like most dogs as soon as someone steps into the kitchen in the morning, Calli knows its time for breakfast. However, she also knows that after a delicious meal, there's a chance for more. She waits patiently for the next person to make their way down to the kitchen, and you guessed it, "Breakfast Time!?!?!", she exclaims. We needed another way to keep track of this, so I created a system to sort out this conundrum using Home Assistant, our phones, and some NFC Tags!
-<img src="/assets/images/posts/did-you-feed-the-dog/calli-food.png" style="display: block;margin-left: auto;margin-right: auto;width:30%;"/>
-<br>
+<br><img src="/assets/images/posts/did-you-feed-the-dog/calli-food.png" class="center" width="20%"/>
 
 <h2 class="drac-heading drac-heading-xl drac-text-orange">Getting Started</h2>
 ### Before beginning this tutorial, please make sure you have the following:
@@ -49,12 +48,12 @@ To create a helper, select *Add helper* at the bottom right of the page.
 ## Helper 1 - Counter - Dog Meal Counter
 The first helper that we create will be a counter. It will be used to keep track of the number of times that we fed our dog and will reset at midnight. It needs to have a maximum value of **2** (or more depending on Fido) and a step size of  **1**.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/counter.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/counter.png"/>
 
 ## Helper 2 & 3 - Input Boolean - Dog Breakfast & Dog Dinner
 The next two helpers that we need are toggles. They will be used to keep track of which meals our dog has ate. I have named one **Dog Breakfast** and the other **Dog Dinner** (*how creative, ik!*).
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/toggle.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/toggle.png"/>
 
 <h2 id="setting-up-the-tag" class="drac-heading drac-heading-xl drac-text-orange">Setting up the Tag</h2>
 To create a tag, open the configuration menu and select tags:
@@ -63,7 +62,7 @@ To create a tag, open the configuration menu and select tags:
 Next, click **Add tag** at the bottom right of the page.
 
 ## Tag 1 - Counter - Dog Meal Counter
-<img  width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/tag.png"/>
+<img  class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/tag.png"/>
 
 ### From your phone:
 Go ahead and grab the tag that you plan on using, name it, and select **create and write**. Finally, to write the information to the tag, simply place your phone on top of it.
@@ -87,21 +86,21 @@ To create an automation, select *Add automation* at the bottom right of the page
 #### Triggers
 We will need to select the tag we setup [in the previous step](#setting-up-the-tag). Anytime this tag is scanned, it will kick off the automation.
 
-<img src="/assets/images/posts/did-you-feed-the-dog/trigger1.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/trigger1.png"/>
 
 #### Conditions
 Since the dog only eats two meals, we will set a *numeric state* condition on our counter to **below 2**. This will prevent the automation from running if the dog has already eaten twice.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/condition1.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/condition1.png"/>
 
 #### Actions
 For the first action we want the automation to increment the counter (add one to it). This can be done with the *call service* action type and selecting the **counter.increment** service. Finally, we will want to make sure we target the meal counter.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action1.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action1.png"/>
 
 Next, we will use a *choose* action, which acts like a simple if/else statement. If the counter's value is 1, turn on **Dog Breakfast**, otherwise (else) turn on **Dog Dinner**.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action1-2.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action1-2.png"/>
 
 ### Code 1
 Here's the full code of what we just built:
@@ -117,7 +116,7 @@ Thats it! Now we can move onto the last automation.
 #### Triggers
 The trigger for this automation will be of the type *time* and will be set to **00:00:00**. This means the automation will start everyday at midnight.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/trigger2.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/trigger2.png"/>
 
 #### Conditions
 We don't need to set anything here!
@@ -131,7 +130,7 @@ We will need to do three things:
 
 In order to reset the counter we will need to call the **counter.reset** service with the meal counter as the selected target. Finally, in order to turn off the meal switches, you will need to call the **input_boolean.turn_off** service targeted at each switch respectively.
 
-<img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action2.png"/>
+<img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action2.png"/>
 
 ### Code 2
 Voilà, we have working code!
@@ -142,7 +141,7 @@ Voilà, we have working code!
 
 <p class="drac-text drac-text-center">To finish this one off, I created a card on the dashboard so the info is always visible!</p>
 
-<img  width="50% + 1vw" style="display: block;margin-left: auto;margin-right: auto;" src="/assets/images/posts/did-you-feed-the-dog/card.png"/>
+<img  class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/card.png"/>
 
 <script src="https://gist.github.com/ursaMaj0r/bf31b13f0b8ab4dd9d0b1b87e12a90aa.js"></script>
 
