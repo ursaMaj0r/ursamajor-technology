@@ -46,11 +46,11 @@
       </time>
     </p>
   </div>
-  <div class="drac-text drac-text-white drac-text-center drac-text-sm drac-m-lg custom-link-cyan" style="width:50% + 1vw" itemprop="articleBody">
+  <div class="drac-text drac-text-white drac-text-center center drac-text-sm custom-link-cyan" style="width:80%" itemprop="articleBody">
       <p>Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</p>
 
   </div>
-  <div class="drac-text drac-text-white custom-link-cyan  drac-text-sm drac-m-lg" style="width:50% + 1vw" itemprop="articleBody">
+  <div class="drac-text drac-text-white custom-link-cyan center drac-text-sm" style="width:80%" itemprop="articleBody">
       
 <!--more-->
 <p><br /></p>
@@ -62,13 +62,13 @@
 
 <h2 class="drac-heading drac-heading-xl drac-text-orange">Setting Up Clockify</h2>
 <p>First, we will need to create a Clockify account, which can be done <a href="https://clockify.me/signup">here</a>.
-<br /><img src="/assets/images/posts/psclockify/signup.png" width="75%" /></p>
+<br /><img src="/assets/images/posts/psclockify/signup.png" class="center" width="80%" /></p>
 
 <p>Next let’s generate an API key by clicking on the avatar at the top right and then <strong>Profile Settings</strong> or by navigating directly to <a href="https://clockify.me/user/settings">https://clockify.me/user/settings</a>. Scroll to the bottom of the page and click <strong>Generate</strong>.
-<br /><img src="/assets/images/posts/psclockify/api.png" width="75%" /></p>
+<br /><img src="/assets/images/posts/psclockify/api.png" class="center" width="80%" /></p>
 
 <p>Finally, we will need the workspace name. This can be found on the <strong>General tab of Settings</strong> or to the left of the upgrade button on the top bar. Feel free to edit the name to be whatever you like.
-<br /><img src="/assets/images/posts/psclockify/workspace.png" width="75%" /></p>
+<br /><img src="/assets/images/posts/psclockify/workspace.png" class="center" width="80%" /></p>
 
 <h2 class="drac-heading drac-heading-xl drac-text-orange">Installing the Module</h2>
 <p><a href="https://github.com/ursaMaj0r/PSClockify">Source Code</a> - The module was written with PS Core and works on both Mac and Windows!</p>
@@ -76,7 +76,7 @@
 <p>Let’s download the code and import it as a PowerShell module using the following code:
 <script src="https://gist.github.com/ursaMaj0r/33e970b84c9ea884a2f8b1cbdfb752a5.js"></script></p>
 
-<p><br /><img src="/assets/images/posts/psclockify/install.png" width="75%" /></p>
+<p><br /><img src="/assets/images/posts/psclockify/install.png" class="center" width="80%" /></p>
 
 <h2 class="drac-heading drac-heading-xl drac-text-orange">Using the Module</h2>
 
@@ -84,7 +84,7 @@
 <p>Let’s get connected to Clockify by running the following command (replacing with your API Key and Workspace name from above). If you want to confirm that you are connected, you can run the <em>Test-Session</em> command.
 <script src="https://gist.github.com/ursaMaj0r/8676fbb9741615b63992ae360654c43b.js"></script></p>
 
-<p><br /><img src="/assets/images/posts/psclockify/connection.png" width="75%" /></p>
+<p><br /><img src="/assets/images/posts/psclockify/connection.png" class="center" width="80%" /></p>
 
 <h3 id="creating-stuff">Creating Stuff</h3>
 <p>Let’s get started by creating a project called chores. We can do that using the module with the following command:</p>
@@ -94,7 +94,7 @@
 <p>And we can’t forget to add some tasks to the project:
 <script src="https://gist.github.com/ursaMaj0r/9c684f21c70ac02023ba3f194043e907.js"></script></p>
 
-<p><br /><img src="/assets/images/posts/psclockify/create-stuff.png" width="75%" /></p>
+<p><br /><img src="/assets/images/posts/psclockify/create-stuff.png" class="center" width="80%" /></p>
 
 <h3 id="event-tracking">Event Tracking</h3>
 <p>Lastly, we need to be able to track the time we spend on each task. Let’s track some time doing laundry!</p>
@@ -102,7 +102,7 @@
 <script src="https://gist.github.com/ursaMaj0r/121ceeb238742e35127188218f12da89.js"></script>
 
 <p>And when we are finished, we can simply run <em>Stop-Timer</em>.
-<br /><img src="/assets/images/posts/psclockify/timer.png" width="75%" /></p>
+<br /><img src="/assets/images/posts/psclockify/timer.png" class="center" width="80%" /></p>
 
 <h3 id="and-more">And More</h3>
 <p>The module can be used to do pretty much anything you can do in the UI. Try playing around with some other commands to create, set, or delete any object (Clients, Projects, Tags, Tasks, and Timers)!</p>
@@ -118,8 +118,7 @@
 
 <p><br />
 <br /></p>
-
-<h1 id="stay-tuned-for-part-two">Stay tuned for part two!</h1>
+<h1 class="drac-heading drac-text-center">Stay tuned for part two!</h1>
 
   </div>
   <a href="/2021/08/11/psclockify-pt1/" hidden></a>

@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2021-09-15T03:19:56+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">Did you feed the dog?</title><link href="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/" rel="alternate" type="text/html" title="Did you feed the dog?" /><published>2021-09-14T21:00:00+00:00</published><updated>2021-09-14T21:00:00+00:00</updated><id>https://ursamajor.technology/2021/09/14/did-you-feed-the-dog</id><content type="html" xml:base="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/">&lt;p&gt;Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2021-09-15T21:03:42+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">Did you feed the dog?</title><link href="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/" rel="alternate" type="text/html" title="Did you feed the dog?" /><published>2021-09-14T21:00:00+00:00</published><updated>2021-09-14T21:00:00+00:00</updated><id>https://ursamajor.technology/2021/09/14/did-you-feed-the-dog</id><content type="html" xml:base="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/">&lt;p&gt;Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
 &lt;p&gt;Calli the dog has always been motivated by one thing in life: food. In fact, it motivates her so much she has been know to ask for breakfast &lt;em&gt;one human at a time.&lt;/em&gt; Like most dogs as soon as someone steps into the kitchen in the morning, Calli knows its time for breakfast. However, she also knows that after a delicious meal, there’s a chance for more. She waits patiently for the next person to make their way down to the kitchen, and you guessed it, “Breakfast Time!?!?!”, she exclaims. We needed another way to keep track of this, so I created a system to sort out this conundrum using Home Assistant, our phones, and some NFC Tags!
-&lt;img src=&quot;/assets/images/posts/did-you-feed-the-dog/calli-food.png&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;width:30%;&quot; /&gt;
-&lt;br /&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/did-you-feed-the-dog/calli-food.png&quot; class=&quot;center&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 class=&quot;drac-heading drac-heading-xl drac-text-orange&quot;&gt;Getting Started&lt;/h2&gt;
 &lt;h3 id=&quot;before-beginning-this-tutorial-please-make-sure-you-have-the-following&quot;&gt;Before beginning this tutorial, please make sure you have the following:&lt;/h3&gt;
@@ -31,12 +30,12 @@
 &lt;h2 id=&quot;helper-1---counter---dog-meal-counter&quot;&gt;Helper 1 - Counter - Dog Meal Counter&lt;/h2&gt;
 &lt;p&gt;The first helper that we create will be a counter. It will be used to keep track of the number of times that we fed our dog and will reset at midnight. It needs to have a maximum value of &lt;strong&gt;2&lt;/strong&gt; (or more depending on Fido) and a step size of  &lt;strong&gt;1&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/counter.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/counter.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;helper-2--3---input-boolean---dog-breakfast--dog-dinner&quot;&gt;Helper 2 &amp;amp; 3 - Input Boolean - Dog Breakfast &amp;amp; Dog Dinner&lt;/h2&gt;
 &lt;p&gt;The next two helpers that we need are toggles. They will be used to keep track of which meals our dog has ate. I have named one &lt;strong&gt;Dog Breakfast&lt;/strong&gt; and the other &lt;strong&gt;Dog Dinner&lt;/strong&gt; (&lt;em&gt;how creative, ik!&lt;/em&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/toggle.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/toggle.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;setting-up-the-tag&quot; class=&quot;drac-heading drac-heading-xl drac-text-orange&quot;&gt;Setting up the Tag&lt;/h2&gt;
 &lt;p&gt;To create a tag, open the configuration menu and select tags:
@@ -45,7 +44,7 @@
 &lt;p&gt;Next, click &lt;strong&gt;Add tag&lt;/strong&gt; at the bottom right of the page.&lt;/p&gt;
 
 &lt;h2 id=&quot;tag-1---counter---dog-meal-counter&quot;&gt;Tag 1 - Counter - Dog Meal Counter&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/tag.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/tag.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;from-your-phone&quot;&gt;From your phone:&lt;/h3&gt;
 &lt;p&gt;Go ahead and grab the tag that you plan on using, name it, and select &lt;strong&gt;create and write&lt;/strong&gt;. Finally, to write the information to the tag, simply place your phone on top of it.&lt;/p&gt;
@@ -71,21 +70,21 @@
 &lt;h4 id=&quot;triggers&quot;&gt;Triggers&lt;/h4&gt;
 &lt;p&gt;We will need to select the tag we setup &lt;a href=&quot;#setting-up-the-tag&quot;&gt;in the previous step&lt;/a&gt;. Anytime this tag is scanned, it will kick off the automation.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/did-you-feed-the-dog/trigger1.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/trigger1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;conditions&quot;&gt;Conditions&lt;/h4&gt;
 &lt;p&gt;Since the dog only eats two meals, we will set a &lt;em&gt;numeric state&lt;/em&gt; condition on our counter to &lt;strong&gt;below 2&lt;/strong&gt;. This will prevent the automation from running if the dog has already eaten twice.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/condition1.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/condition1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;actions&quot;&gt;Actions&lt;/h4&gt;
 &lt;p&gt;For the first action we want the automation to increment the counter (add one to it). This can be done with the &lt;em&gt;call service&lt;/em&gt; action type and selecting the &lt;strong&gt;counter.increment&lt;/strong&gt; service. Finally, we will want to make sure we target the meal counter.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action1.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action1.png&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Next, we will use a &lt;em&gt;choose&lt;/em&gt; action, which acts like a simple if/else statement. If the counter’s value is 1, turn on &lt;strong&gt;Dog Breakfast&lt;/strong&gt;, otherwise (else) turn on &lt;strong&gt;Dog Dinner&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action1-2.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action1-2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;code-1&quot;&gt;Code 1&lt;/h3&gt;
 &lt;p&gt;Here’s the full code of what we just built:
@@ -101,7 +100,7 @@
 &lt;h4 id=&quot;triggers-1&quot;&gt;Triggers&lt;/h4&gt;
 &lt;p&gt;The trigger for this automation will be of the type &lt;em&gt;time&lt;/em&gt; and will be set to &lt;strong&gt;00:00:00&lt;/strong&gt;. This means the automation will start everyday at midnight.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/trigger2.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/trigger2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;conditions-1&quot;&gt;Conditions&lt;/h4&gt;
 &lt;p&gt;We don’t need to set anything here!&lt;/p&gt;
@@ -117,7 +116,7 @@
 
 &lt;p&gt;In order to reset the counter we will need to call the &lt;strong&gt;counter.reset&lt;/strong&gt; service with the meal counter as the selected target. Finally, in order to turn off the meal switches, you will need to call the &lt;strong&gt;input_boolean.turn_off&lt;/strong&gt; service targeted at each switch respectively.&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action2.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/action2.png&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;code-2&quot;&gt;Code 2&lt;/h3&gt;
 &lt;p&gt;Voilà, we have working code!&lt;/p&gt;
@@ -128,7 +127,7 @@
 
 &lt;p class=&quot;drac-text drac-text-center&quot;&gt;To finish this one off, I created a card on the dashboard so the info is always visible!&lt;/p&gt;
 
-&lt;p&gt;&lt;img width=&quot;50% + 1vw&quot; style=&quot;display: block;margin-left: auto;margin-right: auto;&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/card.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;40%&quot; src=&quot;/assets/images/posts/did-you-feed-the-dog/card.png&quot; /&gt;&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/ursaMaj0r/bf31b13f0b8ab4dd9d0b1b87e12a90aa.js&quot;&gt;&lt;/script&gt;</content><author><name>Jeff</name></author><category term="Smart Home" /><category term="Doggo" /><category term="Home Assistant" /><category term="NFC Tags" /><category term="Automate Everything" /><summary type="html">Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/did-you-feed-the-dog/title.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/did-you-feed-the-dog/title.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PS Clockify Part 1: Getting Started</title><link href="https://ursamajor.technology/2021/08/11/psclockify-pt1/" rel="alternate" type="text/html" title="PS Clockify Part 1: Getting Started" /><published>2021-08-11T00:00:00+00:00</published><updated>2021-08-11T00:00:00+00:00</updated><id>https://ursamajor.technology/2021/08/11/psclockify-pt1</id><content type="html" xml:base="https://ursamajor.technology/2021/08/11/psclockify-pt1/">&lt;p&gt;Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!&lt;/p&gt;
 
@@ -142,13 +141,13 @@
 
 &lt;h2 class=&quot;drac-heading drac-heading-xl drac-text-orange&quot;&gt;Setting Up Clockify&lt;/h2&gt;
 &lt;p&gt;First, we will need to create a Clockify account, which can be done &lt;a href=&quot;https://clockify.me/signup&quot;&gt;here&lt;/a&gt;.
-&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/signup.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/signup.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Next let’s generate an API key by clicking on the avatar at the top right and then &lt;strong&gt;Profile Settings&lt;/strong&gt; or by navigating directly to &lt;a href=&quot;https://clockify.me/user/settings&quot;&gt;https://clockify.me/user/settings&lt;/a&gt;. Scroll to the bottom of the page and click &lt;strong&gt;Generate&lt;/strong&gt;.
-&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/api.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/api.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Finally, we will need the workspace name. This can be found on the &lt;strong&gt;General tab of Settings&lt;/strong&gt; or to the left of the upgrade button on the top bar. Feel free to edit the name to be whatever you like.
-&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/workspace.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/workspace.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 class=&quot;drac-heading drac-heading-xl drac-text-orange&quot;&gt;Installing the Module&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ursaMaj0r/PSClockify&quot;&gt;Source Code&lt;/a&gt; - The module was written with PS Core and works on both Mac and Windows!&lt;/p&gt;
@@ -156,7 +155,7 @@
 &lt;p&gt;Let’s download the code and import it as a PowerShell module using the following code:
 &lt;script src=&quot;https://gist.github.com/ursaMaj0r/33e970b84c9ea884a2f8b1cbdfb752a5.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/install.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/install.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 class=&quot;drac-heading drac-heading-xl drac-text-orange&quot;&gt;Using the Module&lt;/h2&gt;
 
@@ -164,7 +163,7 @@
 &lt;p&gt;Let’s get connected to Clockify by running the following command (replacing with your API Key and Workspace name from above). If you want to confirm that you are connected, you can run the &lt;em&gt;Test-Session&lt;/em&gt; command.
 &lt;script src=&quot;https://gist.github.com/ursaMaj0r/8676fbb9741615b63992ae360654c43b.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/connection.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/connection.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-stuff&quot;&gt;Creating Stuff&lt;/h3&gt;
 &lt;p&gt;Let’s get started by creating a project called chores. We can do that using the module with the following command:&lt;/p&gt;
@@ -174,7 +173,7 @@
 &lt;p&gt;And we can’t forget to add some tasks to the project:
 &lt;script src=&quot;https://gist.github.com/ursaMaj0r/9c684f21c70ac02023ba3f194043e907.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/create-stuff.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/create-stuff.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;event-tracking&quot;&gt;Event Tracking&lt;/h3&gt;
 &lt;p&gt;Lastly, we need to be able to track the time we spend on each task. Let’s track some time doing laundry!&lt;/p&gt;
@@ -182,7 +181,7 @@
 &lt;script src=&quot;https://gist.github.com/ursaMaj0r/121ceeb238742e35127188218f12da89.js&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;And when we are finished, we can simply run &lt;em&gt;Stop-Timer&lt;/em&gt;.
-&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/timer.png&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/psclockify/timer.png&quot; class=&quot;center&quot; width=&quot;80%&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;and-more&quot;&gt;And More&lt;/h3&gt;
 &lt;p&gt;The module can be used to do pretty much anything you can do in the UI. Try playing around with some other commands to create, set, or delete any object (Clients, Projects, Tags, Tasks, and Timers)!&lt;/p&gt;
@@ -198,8 +197,7 @@
 
 &lt;p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;stay-tuned-for-part-two&quot;&gt;Stay tuned for part two!&lt;/h1&gt;</content><author><name>Jeff</name></author><category term="Productivity" /><category term="PowerShell" /><category term="Clockify" /><category term="Automate Everything" /><summary type="html">Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/psclockify/title-image.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/psclockify/title-image.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Genesis</title><link href="https://ursamajor.technology/2021/08/05/welcome/" rel="alternate" type="text/html" title="Genesis" /><published>2021-08-05T00:00:00+00:00</published><updated>2021-08-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2021/08/05/welcome</id><content type="html" xml:base="https://ursamajor.technology/2021/08/05/welcome/">&lt;p&gt;Welcome to Automate Everything!
+&lt;h1 class=&quot;drac-heading drac-text-center&quot;&gt;Stay tuned for part two!&lt;/h1&gt;</content><author><name>Jeff</name></author><category term="Productivity" /><category term="PowerShell" /><category term="Clockify" /><category term="Automate Everything" /><summary type="html">Need help managing your time? Are you having trouble balancing everything? Look no further. This is the beginning of a series of blog posts where I show you how to use PowerShell and PowerBI to automate time management!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/psclockify/title-image.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/psclockify/title-image.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Genesis</title><link href="https://ursamajor.technology/2021/08/05/welcome/" rel="alternate" type="text/html" title="Genesis" /><published>2021-08-05T00:00:00+00:00</published><updated>2021-08-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2021/08/05/welcome</id><content type="html" xml:base="https://ursamajor.technology/2021/08/05/welcome/">&lt;p&gt;Welcome to Automate Everything!
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;Here I will post all my thoughts around all things technology. I apologize in advance.&lt;/p&gt;

@@ -46,17 +46,16 @@
       </time>
     </p>
   </div>
-  <div class="drac-text drac-text-white drac-text-center drac-text-sm drac-m-lg custom-link-cyan" style="width:50% + 1vw" itemprop="articleBody">
+  <div class="drac-text drac-text-white drac-text-center center drac-text-sm custom-link-cyan" style="width:80%" itemprop="articleBody">
       <p>Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!
 <!--more--></p>
 
   </div>
-  <div class="drac-text drac-text-white custom-link-cyan  drac-text-sm drac-m-lg" style="width:50% + 1vw" itemprop="articleBody">
+  <div class="drac-text drac-text-white custom-link-cyan center drac-text-sm" style="width:80%" itemprop="articleBody">
       
 <h1 id="background">Background</h1>
 <p>Calli the dog has always been motivated by one thing in life: food. In fact, it motivates her so much she has been know to ask for breakfast <em>one human at a time.</em> Like most dogs as soon as someone steps into the kitchen in the morning, Calli knows its time for breakfast. However, she also knows that after a delicious meal, there’s a chance for more. She waits patiently for the next person to make their way down to the kitchen, and you guessed it, “Breakfast Time!?!?!”, she exclaims. We needed another way to keep track of this, so I created a system to sort out this conundrum using Home Assistant, our phones, and some NFC Tags!
-<img src="/assets/images/posts/did-you-feed-the-dog/calli-food.png" style="display: block;margin-left: auto;margin-right: auto;width:30%;" />
-<br /></p>
+<br /><img src="/assets/images/posts/did-you-feed-the-dog/calli-food.png" class="center" width="20%" /></p>
 
 <h2 class="drac-heading drac-heading-xl drac-text-orange">Getting Started</h2>
 <h3 id="before-beginning-this-tutorial-please-make-sure-you-have-the-following">Before beginning this tutorial, please make sure you have the following:</h3>
@@ -83,12 +82,12 @@
 <h2 id="helper-1---counter---dog-meal-counter">Helper 1 - Counter - Dog Meal Counter</h2>
 <p>The first helper that we create will be a counter. It will be used to keep track of the number of times that we fed our dog and will reset at midnight. It needs to have a maximum value of <strong>2</strong> (or more depending on Fido) and a step size of  <strong>1</strong>.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/counter.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/counter.png" /></p>
 
 <h2 id="helper-2--3---input-boolean---dog-breakfast--dog-dinner">Helper 2 &amp; 3 - Input Boolean - Dog Breakfast &amp; Dog Dinner</h2>
 <p>The next two helpers that we need are toggles. They will be used to keep track of which meals our dog has ate. I have named one <strong>Dog Breakfast</strong> and the other <strong>Dog Dinner</strong> (<em>how creative, ik!</em>).</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/toggle.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/toggle.png" /></p>
 
 <h2 id="setting-up-the-tag" class="drac-heading drac-heading-xl drac-text-orange">Setting up the Tag</h2>
 <p>To create a tag, open the configuration menu and select tags:
@@ -97,7 +96,7 @@
 <p>Next, click <strong>Add tag</strong> at the bottom right of the page.</p>
 
 <h2 id="tag-1---counter---dog-meal-counter">Tag 1 - Counter - Dog Meal Counter</h2>
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/tag.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/tag.png" /></p>
 
 <h3 id="from-your-phone">From your phone:</h3>
 <p>Go ahead and grab the tag that you plan on using, name it, and select <strong>create and write</strong>. Finally, to write the information to the tag, simply place your phone on top of it.</p>
@@ -123,21 +122,21 @@
 <h4 id="triggers">Triggers</h4>
 <p>We will need to select the tag we setup <a href="#setting-up-the-tag">in the previous step</a>. Anytime this tag is scanned, it will kick off the automation.</p>
 
-<p><img src="/assets/images/posts/did-you-feed-the-dog/trigger1.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/trigger1.png" /></p>
 
 <h4 id="conditions">Conditions</h4>
 <p>Since the dog only eats two meals, we will set a <em>numeric state</em> condition on our counter to <strong>below 2</strong>. This will prevent the automation from running if the dog has already eaten twice.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/condition1.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/condition1.png" /></p>
 
 <h4 id="actions">Actions</h4>
 <p>For the first action we want the automation to increment the counter (add one to it). This can be done with the <em>call service</em> action type and selecting the <strong>counter.increment</strong> service. Finally, we will want to make sure we target the meal counter.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action1.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action1.png" /></p>
 
 <p>Next, we will use a <em>choose</em> action, which acts like a simple if/else statement. If the counter’s value is 1, turn on <strong>Dog Breakfast</strong>, otherwise (else) turn on <strong>Dog Dinner</strong>.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action1-2.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action1-2.png" /></p>
 
 <h3 id="code-1">Code 1</h3>
 <p>Here’s the full code of what we just built:
@@ -153,7 +152,7 @@
 <h4 id="triggers-1">Triggers</h4>
 <p>The trigger for this automation will be of the type <em>time</em> and will be set to <strong>00:00:00</strong>. This means the automation will start everyday at midnight.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/trigger2.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/trigger2.png" /></p>
 
 <h4 id="conditions-1">Conditions</h4>
 <p>We don’t need to set anything here!</p>
@@ -169,7 +168,7 @@
 
 <p>In order to reset the counter we will need to call the <strong>counter.reset</strong> service with the meal counter as the selected target. Finally, in order to turn off the meal switches, you will need to call the <strong>input_boolean.turn_off</strong> service targeted at each switch respectively.</p>
 
-<p><img width="50% + 1vw" src="/assets/images/posts/did-you-feed-the-dog/action2.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/action2.png" /></p>
 
 <h3 id="code-2">Code 2</h3>
 <p>Voilà, we have working code!</p>
@@ -180,7 +179,7 @@
 
 <p class="drac-text drac-text-center">To finish this one off, I created a card on the dashboard so the info is always visible!</p>
 
-<p><img width="50% + 1vw" style="display: block;margin-left: auto;margin-right: auto;" src="/assets/images/posts/did-you-feed-the-dog/card.png" /></p>
+<p><img class="center" width="40%" src="/assets/images/posts/did-you-feed-the-dog/card.png" /></p>
 
 <script src="https://gist.github.com/ursaMaj0r/bf31b13f0b8ab4dd9d0b1b87e12a90aa.js"></script>
 
