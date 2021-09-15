@@ -18,9 +18,11 @@ layout: default
       </time>
     </p>
   </div>
-  <div class="drac-text drac-text-white drac-text-center drac-text-lg" itemprop="articleBody">
-    <div class="drac-text drac-m-lg drac-text-sm custom-link-cyan">
-    {{ content }}</div>  
+  <div class="drac-text drac-text-white drac-text-center drac-text-sm drac-m-lg custom-link-cyan" style="width:50% + 1vw" itemprop="articleBody">
+      {{ page.excerpt }}
+  </div>
+  <div class="drac-text drac-text-white custom-link-cyan  drac-text-sm drac-m-lg" style="width:50% + 1vw" itemprop="articleBody">
+      {{ content | remove_first:page.excerpt }}
   </div>
   <a href="{{ page.url | relative_url }}" hidden></a>
 </article>
