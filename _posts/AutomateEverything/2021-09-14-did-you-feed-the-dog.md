@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Did you feed the dog?
-date: 2021-09-14 00:00 +0000
+date: 2021-09-14 21:00 +0000
 id: 01
 author: Jeff
-image: /assets/images/posts/did-you-feed-the-dog/card.png
+image: /assets/images/posts/did-you-feed-the-dog/title.png
 categories:
     - Smart Home
     - Doggo
