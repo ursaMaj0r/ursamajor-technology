@@ -1,4 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2021-10-05T02:37:27+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">Did you feed the dog?</title><link href="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/" rel="alternate" type="text/html" title="Did you feed the dog?" /><published>2021-09-14T21:00:00+00:00</published><updated>2021-09-14T21:00:00+00:00</updated><id>https://ursamajor.technology/2021/09/14/did-you-feed-the-dog</id><content type="html" xml:base="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/">&lt;p&gt;Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2021-10-05T03:17:05+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">PowerShell Port Scanner with Netcat</title><link href="https://ursamajor.technology/2021/10/04/ps-nc-scanner/" rel="alternate" type="text/html" title="PowerShell Port Scanner with Netcat" /><published>2021-10-04T21:00:00+00:00</published><updated>2021-10-04T21:00:00+00:00</updated><id>https://ursamajor.technology/2021/10/04/ps-nc-scanner</id><content type="html" xml:base="https://ursamajor.technology/2021/10/04/ps-nc-scanner/">&lt;p&gt;Yet another netcat port scanner…but with a twist of PowerShell.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;The below PowerShell Core script was created using netcat to scan a target host for a list of open ports. I chose to write the script in PowerShell Core because it can be run on any machine (not just Windows). The script works by iterating through a list of ports utilizing the zero I/O mode of netcat. Simply put, it attempts to open a connection on a specified TCP port with no data in the payload. This quickly can be used to determine if the port is open or closed and then is reported back to the user. In order to improve speed, I have chosen to set the timeout to one second using the w parameter.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-use&quot;&gt;How to Use&lt;/h2&gt;
+
+&lt;p&gt;The script takes in the following parameters:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Target&lt;/strong&gt; - IP Address or FQDN of computer that will be scanned&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PortRange&lt;/strong&gt; - list of ports to scan (can be input as a single value, range, or list)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;openOnly&lt;/strong&gt;  - will only return the ports that were found to be open&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+
+&lt;p&gt;For the purposes of the examples we will use google.com as the target. We will assume the target is a web server with ports 80 and 443 open (HTTP/HTTPS).&lt;/p&gt;
+
+&lt;h3 id=&quot;example-1-single-port&quot;&gt;Example 1: Single Port&lt;/h3&gt;
+
+&lt;p&gt;The following example can be used to determine if the server accepts HTTP traffic on port 80.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start-PortScan -target google.com  -portRange 80&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-2-range-of-ports&quot;&gt;Example 2: Range of Ports&lt;/h3&gt;
+
+&lt;p&gt;The following example can be used to determine if the server has any open ports between 75 and 85.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start-PortScan -target google.com -portRange (75..85)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/ps-nc-scanner/example.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-3-open-only&quot;&gt;Example 3: Open Only&lt;/h3&gt;
+
+&lt;p&gt;The following example can be used to determine if the server has any open ports between 75 and 85. With the addition of the switch parameter, &lt;em&gt;openOnly&lt;/em&gt;, the results will omit closed ports.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start-PortScan -target google.com -portRange (75..85) -openOnly&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;script&quot;&gt;Script:&lt;/h2&gt;
+&lt;script src=&quot;https://gist.github.com/ursaMaj0r/ba2b91e022f279fb80bc71b6d01295f3.js&quot;&gt;&lt;/script&gt;</content><author><name>Jeff</name></author><category term="PowerShell" /><category term="Recon" /><category term="Scripts" /><category term="Automate Everything" /><summary type="html">Yet another netcat port scanner…but with a twist of PowerShell.</summary></entry><entry><title type="html">Did you feed the dog?</title><link href="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/" rel="alternate" type="text/html" title="Did you feed the dog?" /><published>2021-09-14T21:00:00+00:00</published><updated>2021-09-14T21:00:00+00:00</updated><id>https://ursamajor.technology/2021/09/14/did-you-feed-the-dog</id><content type="html" xml:base="https://ursamajor.technology/2021/09/14/did-you-feed-the-dog/">&lt;p&gt;Have you ever forgotten if you fed the dog breakfast? Or maybe your dog is like mine and is always ready for another meal… Look no further!
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
@@ -202,4 +245,4 @@
 
 &lt;p&gt;Here I will post all my thoughts around all things technology. I apologize in advance.&lt;/p&gt;
 
-&lt;p&gt;-Jeff&lt;/p&gt;</content><author><name>Jeff</name></author><category term="General" /><category term="Automate Everything" /><summary type="html">Welcome to Automate Everything!</summary></entry></feed>
+&lt;p&gt;-Jeff&lt;/p&gt;</content><author><name>Jeff</name></author><category term="General" /><summary type="html">Welcome to Automate Everything!</summary></entry></feed>
