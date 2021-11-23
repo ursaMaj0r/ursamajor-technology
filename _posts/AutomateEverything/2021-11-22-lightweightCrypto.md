@@ -13,7 +13,15 @@ tags:
 
 My recent project on how the emergence of lightweight crpytography will deliver confidentiality and integrity to the network of things!
 <!--more-->
-<iframe width="840" height="630" src="http://www.youtube.com/embed/30kJepkVSk8" frameborder="0" allowfullscreen></iframe>
+
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://play.vidyard.com/21hxtje97HQwxtjAi4EnD5.jpg"
+  data-uuid="21hxtje97HQwxtjAi4EnD5"
+  data-v="4"
+  data-type="inline"
+/>
 
 <div class="drac-text-center">
     <h2 class="drac-heading drac-heading-xl drac-text-orange">Research Paper</h2>
