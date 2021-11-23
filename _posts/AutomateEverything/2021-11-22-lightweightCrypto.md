@@ -24,6 +24,5 @@ My recent project on how the emergence of lightweight crpytography will deliver 
 />
 
 <div class="drac-text-center">
-    <h2 class="drac-heading drac-heading-xl drac-text-orange">Research Paper</h2>
-    <a href="https://github.com/ursaMaj0r/cyber-research-projects/blob/main/LightweightCrypto/Lightweight%20Cryptography%20Delivers%20Confidentiality%20and%20Integrity%20to%20Resource%20Constrained%20Devices%20FINAL.pdf">Lightweight Cryptography Delivers Confidentiality and Integrity to Resource Constrained Devices</a>
+     <a style="font-size: calc(10px + 1vw)" href="https://github.com/ursaMaj0r/cyber-research-projects/blob/main/LightweightCrypto/Lightweight%20Cryptography%20Delivers%20Confidentiality%20and%20Integrity%20to%20Resource%20Constrained%20Devices%20FINAL.pdf">Click to read full paper - Lightweight Cryptography Delivers Confidentiality and Integrity to Resource Constrained Devices</a>
 </div>
