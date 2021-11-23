@@ -4,7 +4,7 @@ permalink: /:year/:month/:day/:title/
 url: https://ursamajor.technology
 github_username: ursaMaj0r
 date_format: "%b %-d, %Y"
-google_analytics: G-P1CNC3J6444
+google_analytics: G-P1CNC3J644
 
 plugins:
   - jekyll-paginate
