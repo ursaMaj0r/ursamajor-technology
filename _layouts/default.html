@@ -2,22 +2,16 @@
 ---
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/assets/css/main.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/custom.css">
-  {%- include infra/nav.html -%}
-  {%- include infra/header.html -%}
-  {%- include infra/analytics.html -%}
-</head>
+{%- include infra/head.html -%}
 
 <body class="drac-bg-black">
+  {%- include infra/nav.html -%}
+  {%- include infra/header.html -%}
   {{ content }}
 </body>
 
-<footer style="width: 100%;float:left">{%- include infra/footer.html -%}</footer>
-
+<footer style="width: 100%;float:left">
+  {%- include infra/footer.html -%}
+</footer>
 
 </html>
