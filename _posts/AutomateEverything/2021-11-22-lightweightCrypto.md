@@ -11,7 +11,7 @@ tags:
     
 ---
 
-My recent project on how the emergence of lightweight crpytography will deliver confidentiality and integrity to the network of things!
+My recent project on how the emergence of lightweight cryptography  will deliver confidentiality and integrity to the network of things!
 
 <!--more-->
 
