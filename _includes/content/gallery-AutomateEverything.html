@@ -1,6 +1,6 @@
 <div>    
     <div>
-    {%- for post in site.posts -%}
+    {%- for post in paginator.posts -%}
         {% if post.tags contains 'Automate Everything' %}
             <div class="custom-link-white drac-box drac-card drac-bg-orange-red drac-p-md drac-m-sm">
                 {%- assign date_format = site.date_format | default: "%-d %b" -%}
@@ -24,5 +24,6 @@
             </div>
         {% endif %}
     {%- endfor -%}
+    {%- include infra/paginate.html -%}
     </div>
 </div>

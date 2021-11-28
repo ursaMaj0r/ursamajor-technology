@@ -59,3 +59,7 @@ jekyll-archives:
     category: archive-categories
   permalinks:
     category: '/category/:name/'
+
+# paginate
+paginate: 3
+paginate_path: "/page:num/"
