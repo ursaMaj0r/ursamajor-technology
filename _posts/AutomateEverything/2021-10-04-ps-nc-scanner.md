@@ -7,7 +7,7 @@ author: Jeff
 image: 
 categories:
     - PowerShell
-    - Recon
+    - Cyber
     - Scripts
     - Automation
 tags:
