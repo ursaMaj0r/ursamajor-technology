@@ -9,6 +9,7 @@ categories:
     - PowerShell
     - Recon
     - Scripts
+    - Automation
 tags:
     - Automate Everything
 
