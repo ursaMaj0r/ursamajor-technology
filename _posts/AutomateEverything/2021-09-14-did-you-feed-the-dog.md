@@ -10,6 +10,7 @@ categories:
     - Doggo
     - Home Assistant
     - NFC Tags
+    - Automation
 tags:
     - Automate Everything
 

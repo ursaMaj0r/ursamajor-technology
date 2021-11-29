@@ -7,6 +7,7 @@ categories:
     - Productivity
     - PowerShell
     - Clockify
+    - Automation
 tags:
     - Automate Everything
 

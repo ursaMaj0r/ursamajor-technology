@@ -4,9 +4,9 @@ title: PrintNightmare
 titlecolor: orange
 author: Jeff
 categories:
-    - microsoft
-    - exploit
-    - cybersecurity
+    - Microsoft
+    - Exploit
+    - Cyber
 tags:
     - Automate Everything
     

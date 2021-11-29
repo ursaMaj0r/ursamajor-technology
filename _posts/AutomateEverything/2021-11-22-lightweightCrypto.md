@@ -4,8 +4,9 @@ title: Lightweight Cryptography
 titlecolor: orange
 author: Jeff
 categories:
-    - cryptography
+    - Crypto
     - IoT
+    - Cyber
 tags:
     - Automate Everything
     
