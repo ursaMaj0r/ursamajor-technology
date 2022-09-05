@@ -18,7 +18,7 @@ A python project that can be used to learn about common attack vectors against w
 
 # SimpleWebServer
 
-Code: [GitHub Repo]("https://github.com/ursaMaj0r/python-SimpleWebServer")
+Code:  <a style="font-size: calc(10px + .2vw)" href="https://github.com/ursaMaj0r/python-SimpleWebServer">Click to view code</a>
 
 ---
 
