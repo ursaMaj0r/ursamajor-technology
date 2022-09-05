@@ -7,4 +7,5 @@
 
 .jekyll-cache
 .eslintcache
+*.env*
 .env.local
