@@ -1,10 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-05T20:23:21+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-05T20:54:19+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;div class=&quot;drac-text-center&quot;&gt;
   &lt;iframe width=&quot;75%&quot; height=&quot;2000&quot; src=&quot;/assets/images/posts/MyDoom/MyDoom.pdf&quot; title=&quot;MyDoom&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-&lt;/div&gt;</content><author><name>Jeff</name></author><category term="Cyber" /><category term="Malware" /><category term="Automate Everything" /><summary type="html">Reverse engineering the fastest spreading worm to date.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/MyDoom/mydoom.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/MyDoom/mydoom.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PrintNightmare</title><link href="https://ursamajor.technology/2021/11/28/printNightmare/" rel="alternate" type="text/html" title="PrintNightmare" /><published>2021-11-28T00:00:00+00:00</published><updated>2021-11-28T00:00:00+00:00</updated><id>https://ursamajor.technology/2021/11/28/printNightmare</id><content type="html" xml:base="https://ursamajor.technology/2021/11/28/printNightmare/">&lt;p&gt;My recent project on how to mitigate against PrintNightmare along with a live demo of the exploit!&lt;/p&gt;
+&lt;/div&gt;</content><author><name>Jeff</name></author><category term="Cyber" /><category term="Malware" /><category term="Automate Everything" /><summary type="html">Reverse engineering the fastest spreading worm to date.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/MyDoom/mydoom.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/MyDoom/mydoom.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Web Application Security - SimpleWebServer</title><link href="https://ursamajor.technology/2022/09/05/SimpleWebServer/" rel="alternate" type="text/html" title="Web Application Security - SimpleWebServer" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/SimpleWebServer</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/SimpleWebServer/">&lt;p&gt;A python project that can be used to learn about common attack vectors against web applications.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;simplewebserver&quot;&gt;SimpleWebServer&lt;/h1&gt;
+
+&lt;p&gt;Code: &lt;a href=&quot;&amp;quot;https://github.com/ursaMaj0r/python-SimpleWebServer&amp;quot;&quot;&gt;GitHub Repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;general&quot;&gt;General&lt;/h2&gt;
+
+&lt;p&gt;SimpleWebServer is a basic HTTP/HTTPS server that supports server side execution. It was designed for educational purposes and is vulnerable to many common web exploits such as SQL injection, command injection, and directory traversal. It should not be deployed to production environments.&lt;/p&gt;
+
+&lt;h3 id=&quot;starting-the-server&quot;&gt;Starting the Server&lt;/h3&gt;
+
+&lt;p&gt;Example 1: HTTP&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 testServer.py http&lt;/code&gt;&lt;br /&gt;
+Example 2: HTTPS&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 testServer.py https&lt;/code&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;server-side-execution&quot;&gt;Server Side Execution&lt;/h2&gt;
+
+&lt;h3 id=&quot;get&quot;&gt;Get&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start an Instance of Simple Web Server&lt;br /&gt;
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 testServer.py https&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Navigate to &lt;a href=&quot;https://localhost/welcome.php?first=Harry&amp;amp;last=Potter&quot; title=&quot;https://localhost/welcome.php?first=Harry&amp;amp;last=Potter&quot;&gt;https://localhost/welcome.php?first=Harry&amp;amp;last=Potter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws1.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code&quot;&gt;Source Code&lt;/h3&gt;
+
+&lt;p&gt;This web page will take in two query parameters (first and last) and use them to generate a welcome page.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// localhost/welcome.php?first=Harry&amp;amp;last=Potter&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'first'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$ln&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'last'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;b&amp;gt;Hello &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fn&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ln&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;!&amp;lt;/b&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;post&quot;&gt;Post&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start an Instance of Simple Web Server&lt;br /&gt;
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 testServer.py https&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Navigate to &lt;a href=&quot;https://localhost/hello.html&quot; title=&quot;https://localhost/hello.html&quot;&gt;https://localhost/hello.html&lt;/a&gt; and enter your name in the form!&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws2.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;source-code-1&quot;&gt;Source Code&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;This web form will take in two parameters (first and last) and use them to post to welcome.php and dynamically generate a welcome page.
+
+```php
+&amp;lt;?php
+    $fn = $_POST['first'];
+    $ln = $_POST['last'];
+
+    echo &quot;&amp;lt;b&amp;gt;Hello&amp;lt;/b&amp;gt; $fn $ln!&quot;;
+?&amp;gt;
+```
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;expected-behavior&quot;&gt;Expected Behavior&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws3.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;command-injection&quot;&gt;Command Injection&lt;/h2&gt;
+
+&lt;p&gt;HTTP web servers that execute server side code and do not properly parse user input can be vulnerable to command injection. This type of exploit occurs when a bad actor uses a carefully crafted HTTP request to execute arbitrary commands on the host web server. Unsafe data can be injected into all areas of the request including headers, cookies and even the message body. Since the code is executed with the same privileges as the application, it is especially important to avoid running web applications as root where possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;in-the-wild&quot;&gt;In The Wild&lt;/h3&gt;
+
+&lt;p&gt;One of the most commonly known command injection exploits was dubbed “Shellshock” and occurred in 2014. At its’ peak, there were upwards of 1.5 million attacks per day using this technique.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start an Instance of Simple Web Server&lt;br /&gt;
+ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 testServer.py https&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Navigate to &lt;a href=&quot;https://localhost/ping.html&quot; title=&quot;https://localhost/ping.html&quot;&gt;https://localhost/ping.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws4.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;source-code-2&quot;&gt;Source Code&lt;/h3&gt;
+
+&lt;p&gt;This web form can be used to ping hosts from the web server. It takes a single input string and passes that to the ping command. &lt;strong&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/strong&gt; that the function &lt;strong&gt;does not&lt;/strong&gt; sanitize the input for any special characters like semicolons or confirm that it actually a valid host.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ping&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;. &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET['host']&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$output&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;);
+print_r(implode(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$output&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;));
+?&amp;gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;expected-behavior-1&quot;&gt;Expected Behavior&lt;/h3&gt;
+
+&lt;p&gt;Normally when given a valid FQDN or IP address, the web server will return the results of the ping.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws5.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;malicious-request&quot;&gt;Malicious Request&lt;/h2&gt;
+
+&lt;p&gt;However with the simple introduction of a semi-colon, the server will also execute trailing commands on the host. This can be used to execute arbitrary code, access files outside the web root directory, and even delete files on the web server.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws6.png&quot; width=&quot;20%&quot; /&gt;
+&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/SimpleWebServer/sws7.png&quot; width=&quot;20%&quot; /&gt;&lt;/p&gt;</content><author><name>Jeff</name></author><category term="Cyber" /><category term="Python" /><category term="Automate Everything" /><summary type="html">A python project that can be used to learn about common attack vectors against web applications.</summary></entry><entry><title type="html">PrintNightmare</title><link href="https://ursamajor.technology/2021/11/28/printNightmare/" rel="alternate" type="text/html" title="PrintNightmare" /><published>2021-11-28T00:00:00+00:00</published><updated>2021-11-28T00:00:00+00:00</updated><id>https://ursamajor.technology/2021/11/28/printNightmare</id><content type="html" xml:base="https://ursamajor.technology/2021/11/28/printNightmare/">&lt;p&gt;My recent project on how to mitigate against PrintNightmare along with a live demo of the exploit!&lt;/p&gt;
 
 &lt;!--more--&gt;
 

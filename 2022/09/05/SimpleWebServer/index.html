@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/custom.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P1CNC3J644"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P1CNC3J644');
+</script><script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
+    <link rel="shortcut icon" href="/assets/images/static/logo.png">
+</head><body class="drac-bg-black"><header>
+<div style="float: left">
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/">Home</a></button>
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/about">About</a></button>
+</div>
+<div>
+    <img src="/assets/images/static/logo.png" width="50vw" style="float: right;" /></div>
+<div>
+    <h2 class="drac-heading drac-text-orange" style="font-size: calc(10px + 1vw); text-align: right;">
+        Ursa Major Technology
+    </h2>
+    <p class="drac-text drac-text-xs drac-text-right drac-text-orange-red">Bits, Blogging, and Beyond!</p>
+</div>
+</header>
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <div style="text-align:center;">
+    
+  </div>
+  <div class=" custom-link-cyan drac-text drac-text-center"><div>
+    <div>
+        <h2 class="drac-heading drac-heading-md drac-text-orange drac-p-sm">
+            Web Application Security - SimpleWebServer
+        </h2>
+    </div>
+    <div class="drac-text drac-text-md drac-text-white">
+        Topics: <a href="/category/cyber/" class="drac-text">Cyber</a>  <a href="/category/python/" class="drac-text">Python</a></div>
+</div></div>
+  <div>
+    <p class="drac-text drac-text-center drac-text-cyan"><time datetime="2022-09-05T00:00:00+00:00" itemprop="datePublished">
+        Sep 5, 2022
+      </time>
+    </p>
+  </div>
+  <div class="drac-text drac-text-white drac-text-center center drac-text-sm custom-link-cyan" style="width:80%" itemprop="articleBody">
+      <p>A python project that can be used to learn about common attack vectors against web applications.
+<!--more--></p>
+
+  </div>
+  <div class="drac-text drac-text-white custom-link-cyan center drac-text-sm" style="width:80%" itemprop="articleBody">
+      
+<h1 id="simplewebserver">SimpleWebServer</h1>
+
+<p>Code: <a href="&quot;https://github.com/ursaMaj0r/python-SimpleWebServer&quot;">GitHub Repo</a></p>
+
+<hr />
+
+<h2 id="general">General</h2>
+
+<p>SimpleWebServer is a basic HTTP/HTTPS server that supports server side execution. It was designed for educational purposes and is vulnerable to many common web exploits such as SQL injection, command injection, and directory traversal. It should not be deployed to production environments.</p>
+
+<h3 id="starting-the-server">Starting the Server</h3>
+
+<p>Example 1: HTTP<br />
+<code class="language-plaintext highlighter-rouge">python3 testServer.py http</code><br />
+Example 2: HTTPS<br />
+<code class="language-plaintext highlighter-rouge">python3 testServer.py https</code></p>
+
+<hr />
+
+<h2 id="server-side-execution">Server Side Execution</h2>
+
+<h3 id="get">Get</h3>
+
+<ol>
+  <li>Start an Instance of Simple Web Server<br />
+ <code class="language-plaintext highlighter-rouge">python3 testServer.py https</code></li>
+</ol>
+
+<p>Navigate to <a href="https://localhost/welcome.php?first=Harry&amp;last=Potter" title="https://localhost/welcome.php?first=Harry&amp;last=Potter">https://localhost/welcome.php?first=Harry&amp;last=Potter</a></p>
+
+<p><br /><img src="/assets/images/posts/SimpleWebServer/sws1.png" width="20%" /></p>
+
+<h3 id="source-code">Source Code</h3>
+
+<p>This web page will take in two query parameters (first and last) and use them to generate a welcome page.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;?php</span>
+    <span class="c1">// localhost/welcome.php?first=Harry&amp;last=Potter</span>
+    <span class="nv">$fn</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'first'</span><span class="p">];</span>
+    <span class="nv">$ln</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">'last'</span><span class="p">];</span>
+    
+    <span class="k">echo</span> <span class="s2">"&lt;b&gt;Hello </span><span class="nv">$fn</span><span class="s2"> </span><span class="nv">$ln</span><span class="s2">!&lt;/b&gt;"</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="post">Post</h3>
+
+<ol>
+  <li>Start an Instance of Simple Web Server<br />
+ <code class="language-plaintext highlighter-rouge">python3 testServer.py https</code></li>
+  <li>
+    <p>Navigate to <a href="https://localhost/hello.html" title="https://localhost/hello.html">https://localhost/hello.html</a> and enter your name in the form!</p>
+
+    <p><br /><img src="/assets/images/posts/SimpleWebServer/sws2.png" width="20%" /></p>
+  </li>
+</ol>
+
+<h3 id="source-code-1">Source Code</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>This web form will take in two parameters (first and last) and use them to post to welcome.php and dynamically generate a welcome page.
+
+```php
+&lt;?php
+    $fn = $_POST['first'];
+    $ln = $_POST['last'];
+
+    echo "&lt;b&gt;Hello&lt;/b&gt; $fn $ln!";
+?&gt;
+```
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="expected-behavior">Expected Behavior</h3>
+
+<p><br /><img src="/assets/images/posts/SimpleWebServer/sws3.png" width="20%" /></p>
+
+<hr />
+
+<h2 id="command-injection">Command Injection</h2>
+
+<p>HTTP web servers that execute server side code and do not properly parse user input can be vulnerable to command injection. This type of exploit occurs when a bad actor uses a carefully crafted HTTP request to execute arbitrary commands on the host web server. Unsafe data can be injected into all areas of the request including headers, cookies and even the message body. Since the code is executed with the same privileges as the application, it is especially important to avoid running web applications as root where possible.</p>
+
+<h3 id="in-the-wild">In The Wild</h3>
+
+<p>One of the most commonly known command injection exploits was dubbed “Shellshock” and occurred in 2014. At its’ peak, there were upwards of 1.5 million attacks per day using this technique.</p>
+
+<hr />
+
+<h2 id="example">Example</h2>
+
+<ol>
+  <li>Start an Instance of Simple Web Server<br />
+ <code class="language-plaintext highlighter-rouge">python3 testServer.py https</code></li>
+  <li>Navigate to <a href="https://localhost/ping.html" title="https://localhost/ping.html">https://localhost/ping.html</a></li>
+</ol>
+
+<p><br /><img src="/assets/images/posts/SimpleWebServer/sws4.png" width="20%" /></p>
+
+<h3 id="source-code-2">Source Code</h3>
+
+<p>This web form can be used to ping hosts from the web server. It takes a single input string and passes that to the ping command. <strong><em>Note</em></strong> that the function <strong>does not</strong> sanitize the input for any special characters like semicolons or confirm that it actually a valid host.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="cp">&lt;?php</span>
+<span class="nb">exec</span><span class="p">(</span><span class="n">ping</span> <span class="o">-</span><span class="n">c</span> <span class="mi">4</span> <span class="s2">". </span><span class="nv">$_GET['host']</span><span class="s2">,</span><span class="nv">$output</span><span class="s2">);
+print_r(implode(</span><span class="nv">$output</span><span class="s2">));
+?&gt;
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="expected-behavior-1">Expected Behavior</h3>
+
+<p>Normally when given a valid FQDN or IP address, the web server will return the results of the ping.</p>
+
+<p><br /><img src="/assets/images/posts/SimpleWebServer/sws5.png" width="20%" /></p>
+
+<h2 id="malicious-request">Malicious Request</h2>
+
+<p>However with the simple introduction of a semi-colon, the server will also execute trailing commands on the host. This can be used to execute arbitrary code, access files outside the web root directory, and even delete files on the web server.</p>
+
+<p><br /><img src="/assets/images/posts/SimpleWebServer/sws6.png" width="20%" />
+<br /><img src="/assets/images/posts/SimpleWebServer/sws7.png" width="20%" /></p>
+
+  </div>
+  <a href="/2022/09/05/SimpleWebServer/" hidden></a>
+</article>
+</body><footer>
+    <div class="custom-footer custom-link-cyan drac-text drac-text-xs drac-text-center drac-line-height drac-text-cyan drac-p-lg">
+        <p>ursamajor.technology © 2021</p>
+        <p>Powered by GitHub, <a href="https://www.buymeacoffee.com/ursamajor">Mary Lou's Coffee</a>, and <a href="https://github.com/ursaMaj0r/www-ursamajor-technology">Code</a>.
+        </p>
+    </div>
+</footer></html>
