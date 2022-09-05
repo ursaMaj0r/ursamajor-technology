@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-05T20:54:19+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-05T20:58:20+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;div class=&quot;drac-text-center&quot;&gt;
@@ -9,7 +9,7 @@
 
 &lt;h1 id=&quot;simplewebserver&quot;&gt;SimpleWebServer&lt;/h1&gt;
 
-&lt;p&gt;Code: &lt;a href=&quot;&amp;quot;https://github.com/ursaMaj0r/python-SimpleWebServer&amp;quot;&quot;&gt;GitHub Repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Code:  &lt;a style=&quot;font-size: calc(10px + .2vw)&quot; href=&quot;https://github.com/ursaMaj0r/python-SimpleWebServer&quot;&gt;Click to view code&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
