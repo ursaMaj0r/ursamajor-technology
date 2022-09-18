@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-05T20:58:20+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-18T18:36:11+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">PowerShell Secrets, it’s Uber Simple!</title><link href="https://ursamajor.technology/2022/09/18/PSSecrets/" rel="alternate" type="text/html" title="PowerShell Secrets, it’s Uber Simple!" /><published>2022-09-18T00:00:00+00:00</published><updated>2022-09-18T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/18/PSSecrets</id><content type="html" xml:base="https://ursamajor.technology/2022/09/18/PSSecrets/">&lt;p&gt;“Three may keep a secret, if two of them are dead.”  ―Benjamin Franklin&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Creating a PowerShell script to automate a task saves us time and helps to reduce repetitive tasks. Scripts often connect multiple resources together, making them an easy pivot point for a bad actor. It may be tempting to include a password, API key, or secret in a PowerShell file, but this can easily turn a good script into a ticking time bomb. Luckily, PowerShell makes it easy to interact with secret vaults or even create one locally on any Windows, Linux or Mac device with the SecretManagement and SecretStore modules.&lt;/p&gt;
+
+&lt;h1 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h1&gt;
+
+&lt;h3 id=&quot;installing-the-modules&quot;&gt;Installing the Modules&lt;/h3&gt;
+&lt;p&gt;In order to setup the modules for the first time, run the following code in an administrative command prompt:&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;create-a-vault&quot;&gt;Create a Vault&lt;/h3&gt;
+&lt;p&gt;Next, we will create a vault to hold our secrets. The easiest way to do this is to use the SecretStore vault, which creates a locally encrypted file. However, the SecretManagement utilities can also be connected to other more common vaults such as KeePass, LastPass, Azure KeyVault and Hashicorp Vault.&lt;/p&gt;
+
+&lt;p&gt;To do this, run the following command:&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;Register-SecretVault -Name KrabbyPattySecretFormula -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;store-a-secret&quot;&gt;Store a Secret&lt;/h3&gt;
+&lt;p&gt;Now it is time to store our secret in the vault.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;Set-Secret -Name Ingredients -Secret &quot;Bun,Sea Cheese, Sea Lettuce, Sea Tomatoes, Pickles, Ketchup, Mustard, Mayonnaise, Sea Onions, Patty, Secret Sauce,Bun&quot;&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Enter and confirm a password to encrypt your vault. Try to use a long passphase and store it in a password manager for safe keeping!&lt;/p&gt;
+
+&lt;h3 id=&quot;retrieve-a-secret&quot;&gt;Retrieve a Secret&lt;/h3&gt;
+&lt;p&gt;After the secret is placed into the vault, we can very easily retrieve it later in a script. Let’s list out all the ingredients in the Krabby Patty secret formula:&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;(Get-Secret -Name Ingredients -Vault KrabbyPattySecretFormula -AsPlainText).Split(',')&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/images/posts/PSSecrets/secret-formula.png&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;putting-it-all-together&quot;&gt;Putting it all Together&lt;/h1&gt;
+&lt;p&gt;In order to unlock the vault we must provide the password interactively. This is obviously not possible during an automated process. The module provices a way to unlock the vault for a one hour period using the below command. It is important to securely store this password using an encrpted file, or ideally an environment variable in a CI/CD pipeline.&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;Unlock-SecretStore -Password $env:vaultPassword&lt;/code&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;learn-more&quot;&gt;Learn More&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/&quot;&gt;SecretManagement and SecretStore are Generally Available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://learn.microsoft.com/en-us/powershell/utility-modules/secretmanagement/overview?view=ps-modules&quot;&gt;Overview of the SecretManagement and SecretStore modules&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://xkcd.com/538/&quot;&gt;XKCD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Jeff</name></author><category term="PowerShell" /><category term="Cyber" /><category term="Scripts" /><category term="Automate Everything" /><summary type="html">“Three may keep a secret, if two of them are dead.” ―Benjamin Franklin</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://ursamajor.technology/assets/images/posts/PSSecrets/security.png" /><media:content medium="image" url="https://ursamajor.technology/assets/images/posts/PSSecrets/security.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MyDoom</title><link href="https://ursamajor.technology/2022/09/05/MyDoom/" rel="alternate" type="text/html" title="MyDoom" /><published>2022-09-05T00:00:00+00:00</published><updated>2022-09-05T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/05/MyDoom</id><content type="html" xml:base="https://ursamajor.technology/2022/09/05/MyDoom/">&lt;p&gt;Reverse engineering the fastest spreading worm to date.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;div class=&quot;drac-text-center&quot;&gt;

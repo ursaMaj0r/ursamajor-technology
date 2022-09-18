@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/custom.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P1CNC3J644"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P1CNC3J644');
+</script><script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
+    <link rel="shortcut icon" href="/assets/images/static/logo.png">
+</head><body class="drac-bg-black"><header>
+<div style="float: left">
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/">Home</a></button>
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/about">About</a></button>
+</div>
+<div>
+    <img src="/assets/images/static/logo.png" width="50vw" style="float: right;" /></div>
+<div>
+    <h2 class="drac-heading drac-text-orange" style="font-size: calc(10px + 1vw); text-align: right;">
+        Ursa Major Technology
+    </h2>
+    <p class="drac-text drac-text-xs drac-text-right drac-text-orange-red">Bits, Blogging, and Beyond!</p>
+</div>
+</header>
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <div style="text-align:center;">
+    
+    <span><a href="/assets/images/posts/PSSecrets/security.png" title="Opening Image"><img src="/assets/images/posts/PSSecrets/security.png" width="20%" alt="PowerShell Secrets, it's Uber Simple!"></a></span> 
+    
+  </div>
+  <div class=" custom-link-cyan drac-text drac-text-center"><div>
+    <div>
+        <h2 class="drac-heading drac-heading-md drac-text-orange drac-p-sm">
+            PowerShell Secrets, it's Uber Simple!
+        </h2>
+    </div>
+    <div class="drac-text drac-text-md drac-text-white">
+        Topics: <a href="/category/cyber/" class="drac-text">Cyber</a>, <a href="/category/powershell/" class="drac-text">PowerShell</a>,  <a href="/category/scripts/" class="drac-text">Scripts</a></div>
+</div></div>
+  <div>
+    <p class="drac-text drac-text-center drac-text-cyan"><time datetime="2022-09-18T00:00:00+00:00" itemprop="datePublished">
+        Sep 18, 2022
+      </time>
+    </p>
+  </div>
+  <div class="drac-text drac-text-white drac-text-center center drac-text-sm custom-link-cyan" style="width:80%" itemprop="articleBody">
+      <p>“Three may keep a secret, if two of them are dead.”  ―Benjamin Franklin</p>
+
+  </div>
+  <div class="drac-text drac-text-white custom-link-cyan center drac-text-sm" style="width:80%" itemprop="articleBody">
+      
+<!--more-->
+
+<h1 id="overview">Overview</h1>
+<p>Creating a PowerShell script to automate a task saves us time and helps to reduce repetitive tasks. Scripts often connect multiple resources together, making them an easy pivot point for a bad actor. It may be tempting to include a password, API key, or secret in a PowerShell file, but this can easily turn a good script into a ticking time bomb. Luckily, PowerShell makes it easy to interact with secret vaults or even create one locally on any Windows, Linux or Mac device with the SecretManagement and SecretStore modules.</p>
+
+<h1 id="getting-started">Getting Started</h1>
+
+<h3 id="installing-the-modules">Installing the Modules</h3>
+<p>In order to setup the modules for the first time, run the following code in an administrative command prompt:</p>
+
+<div>
+    <code class="custom-codeblock">Install-Module Microsoft.PowerShell.SecretManagement, Microsoft.PowerShell.SecretStore</code>
+</div>
+
+<h3 id="create-a-vault">Create a Vault</h3>
+<p>Next, we will create a vault to hold our secrets. The easiest way to do this is to use the SecretStore vault, which creates a locally encrypted file. However, the SecretManagement utilities can also be connected to other more common vaults such as KeePass, LastPass, Azure KeyVault and Hashicorp Vault.</p>
+
+<p>To do this, run the following command:</p>
+
+<div>
+    <code class="custom-codeblock">Register-SecretVault -Name KrabbyPattySecretFormula -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault</code>
+</div>
+
+<h3 id="store-a-secret">Store a Secret</h3>
+<p>Now it is time to store our secret in the vault.</p>
+
+<div>
+    <code class="custom-codeblock">Set-Secret -Name Ingredients -Secret "Bun,Sea Cheese, Sea Lettuce, Sea Tomatoes, Pickles, Ketchup, Mustard, Mayonnaise, Sea Onions, Patty, Secret Sauce,Bun"</code>
+</div>
+
+<p>Enter and confirm a password to encrypt your vault. Try to use a long passphase and store it in a password manager for safe keeping!</p>
+
+<h3 id="retrieve-a-secret">Retrieve a Secret</h3>
+<p>After the secret is placed into the vault, we can very easily retrieve it later in a script. Let’s list out all the ingredients in the Krabby Patty secret formula:</p>
+
+<div>
+    <code class="custom-codeblock">(Get-Secret -Name Ingredients -Vault KrabbyPattySecretFormula -AsPlainText).Split(',')</code>
+</div>
+
+<p><br /><img src="/assets/images/posts/PSSecrets/secret-formula.png" width="40%" /></p>
+
+<h1 id="putting-it-all-together">Putting it all Together</h1>
+<p>In order to unlock the vault we must provide the password interactively. This is obviously not possible during an automated process. The module provices a way to unlock the vault for a one hour period using the below command. It is important to securely store this password using an encrpted file, or ideally an environment variable in a CI/CD pipeline.</p>
+
+<div>
+    <code class="custom-codeblock">Unlock-SecretStore -Password $env:vaultPassword</code>
+</div>
+
+<h3 id="learn-more">Learn More</h3>
+<ul>
+  <li><a href="https://devblogs.microsoft.com/powershell/secretmanagement-and-secretstore-are-generally-available/">SecretManagement and SecretStore are Generally Available</a></li>
+  <li><a href="https://learn.microsoft.com/en-us/powershell/utility-modules/secretmanagement/overview?view=ps-modules">Overview of the SecretManagement and SecretStore modules</a></li>
+  <li><a href="https://xkcd.com/538/">XKCD</a></li>
+</ul>
+
+  </div>
+  <a href="/2022/09/18/PSSecrets/" hidden></a>
+</article>
+</body><footer>
+    <div class="custom-footer custom-link-cyan drac-text drac-text-xs drac-text-center drac-line-height drac-text-cyan drac-p-lg">
+        <p>ursamajor.technology © 2021</p>
+        <p>Powered by GitHub, <a href="https://www.buymeacoffee.com/ursamajor">Mary Lou's Coffee</a>, and <a href="https://github.com/ursaMaj0r/www-ursamajor-technology">Code</a>.
+        </p>
+    </div>
+</footer></html>
