@@ -13,6 +13,7 @@ plugins:
   - jekyll/tagging
   - jekyll-tagging-related_posts
   - jekyll-archives
+  - jekyll-paginate
 
 exclude:
   - "package*.json"
@@ -59,3 +60,6 @@ jekyll-archives:
     category: archive-categories
   permalinks:
     category: '/category/:name/'
+
+# Pagination Settings
+paginate: 5
