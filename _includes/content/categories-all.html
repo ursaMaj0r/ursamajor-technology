@@ -1,5 +1,5 @@
 <div> 
-    <div class="drac-heading drac-heading-xs drac-text-center drac-text-orange"">
+    <div class="drac-heading drac-heading-xs drac-text-orange drac-text-center"">
         <h2>Topics</h2>
     </div>   
     <div class="drac-box">
@@ -7,11 +7,11 @@
             {% assign categories_list = site.categories %}
               {% if categories_list.first[0] == null %}
                 {% for category in categories_list %}
-                  <li><a class="drac-text drax-text-xs drac-text-center drac-text-white" href="category/{{ category | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a></li>
+                  <li><a class="drac-text drac-text-white" href="category/{{ category | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a></li>
                 {% endfor %}
               {% else %}
                 {% for category in categories_list %}
-                  <li><a style="font-size: calc(10px + .1vw);" class="drac-text drax-text-xs drac-text-center drac-text-white" href="category/{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a></li>
+                  <li><a class="drac-text drac-text-white" href="category/{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a></li>
                 {% endfor %}
               {% endif %}
             {% assign categories_list = nil %}
