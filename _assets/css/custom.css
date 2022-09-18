@@ -70,3 +70,15 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .custom-codeblock {
+    background-color: #FFCA80;
+    color: #22212C; 
+    display:block; 
+    white-space:pre-wrap
+  }
+  
+  .custom-code {
+    background-color: #FFCA80;
+    color: #22212C;
+  }
