@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-18T23:59:40+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">PowerShell Secrets, it’s Uber Simple!</title><link href="https://ursamajor.technology/2022/09/18/PSSecrets/" rel="alternate" type="text/html" title="PowerShell Secrets, it’s Uber Simple!" /><published>2022-09-18T00:00:00+00:00</published><updated>2022-09-18T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/18/PSSecrets</id><content type="html" xml:base="https://ursamajor.technology/2022/09/18/PSSecrets/">&lt;p&gt;“Three may keep a secret, if two of them are dead.”  ―Benjamin Franklin&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://ursamajor.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ursamajor.technology/" rel="alternate" type="text/html" /><updated>2022-09-25T22:01:32+00:00</updated><id>https://ursamajor.technology/feed.xml</id><title type="html">Ursamajor.technology</title><subtitle>PowerShell Blog</subtitle><entry><title type="html">Securely access your homelab services from anywhere!</title><link href="https://ursamajor.technology/2022/09/25/cloudflared/" rel="alternate" type="text/html" title="Securely access your homelab services from anywhere!" /><published>2022-09-25T00:00:00+00:00</published><updated>2022-09-25T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/25/cloudflared</id><content type="html" xml:base="https://ursamajor.technology/2022/09/25/cloudflared/">&lt;p&gt;Let’s setup a reverse proxy that can be used to access any of your internally hosted apps without opening a single port on your router!
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Self hosting applications is growing in popularity and for services to be useful, we want them to be available both at home and on the go. There are many different ways to make an application that is running on your local network externally accessible, but some can open you up to a high degree of risk. You should always consider if it is truly necessary before putting an application online and use a VPN for high risk applications. Once something is online, it is hackable.&lt;/p&gt;
+
+&lt;h1 id=&quot;cloudflared&quot;&gt;Cloudflared&lt;/h1&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/cloudflared.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cloudflared is a secure tunnel application that is available for free from Cloudflare. It can run on many different operating systems, including as a docker container. The application creates a secure tunnel to Cloudflare without opening any ports on your network and can be deployed to any environment to serve as a web application proxy. This provides a high degree of security, because it forces connections to route through Cloudflare which provides DDoS protection as well as serving as a web application firewall or WAF.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting started&lt;/h2&gt;
+&lt;h3 id=&quot;create-a-cloudflare-account&quot;&gt;Create a Cloudflare account&lt;/h3&gt;
+&lt;p&gt;The first thing you will need to do is create a Cloudflare account and register your domain. This can be done &lt;a href=&quot;https://dash.cloudflare.com/sign-up&quot;&gt;here&lt;/a&gt;. If you don’t have a domain, you can purchase one from Cloudflare or transfer in your existing one by adding a site:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/addSite.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that you can use an external registrar, but you must transfer your DNS nameservers over to Cloudflare for the traffic to be properly routed through their systems.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-up-cloudflare-access&quot;&gt;Setting up Cloudflare Access&lt;/h3&gt;
+&lt;p&gt;Next we will need to setup &lt;a href=&quot;https://dash.teams.cloudflare.com&quot;&gt;Cloudflare access&lt;/a&gt; which will hold our application configurations. The free tier should be sufficient for most environments. After you have gotten into the Zero Trust Dashboard, navigate to &lt;strong&gt;Access&lt;/strong&gt; –&amp;gt; &lt;strong&gt;Tunnels&lt;/strong&gt; to create a tunnel.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/addTunnel.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;deploying-the-agent&quot;&gt;Deploying the agent&lt;/h3&gt;
+&lt;p&gt;Once you have created a tunnel, the next step is to deploy the cloudflared agent to a network that can access the application locally. The overview tab for the tunnel provides instructions for most operating systems. Below is an example using docker compose:&lt;/p&gt;
+
+&lt;div&gt;
+    &lt;code class=&quot;custom-codeblock&quot;&gt;
+---
+version: &quot;3&quot;
+networks:
+  frontend:
+    proxynet: true
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CF_TOKEN}
+    networks:
+      - proxynet
+    &lt;/code&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The application authenticates to Cloudflare servers using a token. This token should be considered a secret and protected using an environment variable. In the above example, we use ${CF_TOKEN}. You can find your token in the tunnel overview page. The container has also been added to the proxynet network, which is where the application is hosted.&lt;/p&gt;
+
+&lt;h3 id=&quot;add-an-application&quot;&gt;Add an Application&lt;/h3&gt;
+&lt;p&gt;The next step will be to add the application to your tunnel. This can be done from the public hostnames tab on the tunnel configuration menu. Let’s use Home Assistant running locally over port 8123 as an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/addApp.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point if everything is working, the application should be accessible from external networks.&lt;/p&gt;
+
+&lt;h3 id=&quot;setup-an-authentication-provider&quot;&gt;Setup an Authentication Provider&lt;/h3&gt;
+&lt;p&gt;It is a good idea to add an authentication provider, especially one that protects against brute force attacks for any application that is publicly available. To do this navigate to &lt;strong&gt;Settings&lt;/strong&gt; –&amp;gt; &lt;strong&gt;Authentication&lt;/strong&gt;. Cloudflare supports a number of providers:&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/addAuth.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setup-access-policies&quot;&gt;Setup Access Policies&lt;/h3&gt;
+&lt;p&gt;The final step is to setup some access policies. These help to limit who can access your application, where they can access it, and more! To get started, click on the applications menu on the sidebar and add a self hosted app.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;center&quot; width=&quot;75%&quot; src=&quot;/assets/images/posts/cloudflared/addPolicy.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Make sure to select your authentication method that we setup in the previous step before continuing to the policy page. Each app will have its own policy, but policy groups can be created to quickly select between different templates based on how risky the application may be. For detailed information on policies, please see &lt;a href=&quot;https://developers.cloudflare.com/cloudflare-one/policies/access/&quot;&gt;cloudflared docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Consider adding rules that:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Block countries that you likely will not access from&lt;/li&gt;
+  &lt;li&gt;Use the WARP client to provide device posture checks&lt;/li&gt;
+  &lt;li&gt;Add MFA&lt;/li&gt;
+  &lt;li&gt;Block bots or other reputation filters&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Jeff</name></author><category term="Home Assistant" /><category term="Cyber" /><category term="IoT" /><category term="Cloudflare" /><category term="Automate Everything" /><summary type="html">Let’s setup a reverse proxy that can be used to access any of your internally hosted apps without opening a single port on your router!</summary></entry><entry><title type="html">PowerShell Secrets, it’s Uber Simple!</title><link href="https://ursamajor.technology/2022/09/18/PSSecrets/" rel="alternate" type="text/html" title="PowerShell Secrets, it’s Uber Simple!" /><published>2022-09-18T00:00:00+00:00</published><updated>2022-09-18T00:00:00+00:00</updated><id>https://ursamajor.technology/2022/09/18/PSSecrets</id><content type="html" xml:base="https://ursamajor.technology/2022/09/18/PSSecrets/">&lt;p&gt;“Three may keep a secret, if two of them are dead.”  ―Benjamin Franklin&lt;/p&gt;
 
 &lt;!--more--&gt;
 

@@ -37,6 +37,10 @@
 <lastmod>2022-09-18T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://ursamajor.technology/2022/09/25/cloudflared/</loc>
+<lastmod>2022-09-25T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://ursamajor.technology/about</loc>
 </url>
 <url>
@@ -97,11 +101,14 @@
 <loc>https://ursamajor.technology/category/python/</loc>
 </url>
 <url>
+<loc>https://ursamajor.technology/category/cloudflare/</loc>
+</url>
+<url>
 <loc>https://ursamajor.technology/page2/</loc>
 </url>
 <url>
 <loc>https://ursamajor.technology/assets/images/posts/MyDoom/MyDoom.pdf</loc>
-<lastmod>2022-09-18T23:58:30+00:00</lastmod>
+<lastmod>2022-09-25T22:00:28+00:00</lastmod>
 </url>
 <url>
 <loc>https://ursamajor.technology/node_modules/@tailwindcss/forms/</loc>

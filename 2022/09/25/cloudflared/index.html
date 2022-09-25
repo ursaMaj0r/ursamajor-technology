@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet"href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/custom.css"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P1CNC3J644"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P1CNC3J644');
+</script><script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
+    <link rel="shortcut icon" href="/assets/images/static/logo.png">
+</head><body class="drac-bg-black"><header>
+<div style="float: left">
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/">Home</a></button>
+    <button class="drac-btn drac-bg-orange-red drac-m-xs drac-m-xxs custom-link-black"><a href="/about">About</a></button>
+</div>
+<div>
+    <img src="/assets/images/static/logo.png" width="50vw" style="float: right;" /></div>
+<div>
+    <h2 class="drac-heading drac-text-orange" style="font-size: calc(10px + 1vw); text-align: right;">
+        Ursa Major Technology
+    </h2>
+    <p class="drac-text drac-text-xs drac-text-right drac-text-orange-red">Bits, Blogging, and Beyond!</p>
+</div>
+</header>
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <div style="text-align:center;">
+    
+  </div>
+  <div class=" custom-link-cyan drac-text drac-text-center"><div>
+    <div>
+        <h2 class="drac-heading drac-heading-md drac-text-orange drac-p-sm">
+            Securely access your homelab services from anywhere!
+        </h2>
+    </div>
+    <div class="drac-text drac-text-md drac-text-white">
+        Topics: <a href="/category/cloudflare/" class="drac-text">Cloudflare</a>, <a href="/category/cyber/" class="drac-text">Cyber</a>, <a href="/category/home-assistant/" class="drac-text">Home Assistant</a>,  <a href="/category/iot/" class="drac-text">IoT</a></div>
+</div></div>
+  <div>
+    <p class="drac-text drac-text-center drac-text-cyan"><time datetime="2022-09-25T00:00:00+00:00" itemprop="datePublished">
+        Sep 25, 2022
+      </time>
+    </p>
+  </div>
+  <div class="drac-text drac-text-white drac-text-center center drac-text-sm custom-link-cyan" style="width:80%" itemprop="articleBody">
+      <p>Let’s setup a reverse proxy that can be used to access any of your internally hosted apps without opening a single port on your router!
+<!--more--></p>
+
+  </div>
+  <div class="drac-text drac-text-white custom-link-cyan center drac-text-sm" style="width:80%" itemprop="articleBody">
+      
+<h1 id="overview">Overview</h1>
+<p>Self hosting applications is growing in popularity and for services to be useful, we want them to be available both at home and on the go. There are many different ways to make an application that is running on your local network externally accessible, but some can open you up to a high degree of risk. You should always consider if it is truly necessary before putting an application online and use a VPN for high risk applications. Once something is online, it is hackable.</p>
+
+<h1 id="cloudflared">Cloudflared</h1>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/cloudflared.png" /></p>
+
+<p>Cloudflared is a secure tunnel application that is available for free from Cloudflare. It can run on many different operating systems, including as a docker container. The application creates a secure tunnel to Cloudflare without opening any ports on your network and can be deployed to any environment to serve as a web application proxy. This provides a high degree of security, because it forces connections to route through Cloudflare which provides DDoS protection as well as serving as a web application firewall or WAF.</p>
+
+<h2 id="getting-started">Getting started</h2>
+<h3 id="create-a-cloudflare-account">Create a Cloudflare account</h3>
+<p>The first thing you will need to do is create a Cloudflare account and register your domain. This can be done <a href="https://dash.cloudflare.com/sign-up">here</a>. If you don’t have a domain, you can purchase one from Cloudflare or transfer in your existing one by adding a site:</p>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/addSite.png" /></p>
+
+<p>Note that you can use an external registrar, but you must transfer your DNS nameservers over to Cloudflare for the traffic to be properly routed through their systems.</p>
+
+<h3 id="setting-up-cloudflare-access">Setting up Cloudflare Access</h3>
+<p>Next we will need to setup <a href="https://dash.teams.cloudflare.com">Cloudflare access</a> which will hold our application configurations. The free tier should be sufficient for most environments. After you have gotten into the Zero Trust Dashboard, navigate to <strong>Access</strong> –&gt; <strong>Tunnels</strong> to create a tunnel.</p>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/addTunnel.png" /></p>
+
+<h3 id="deploying-the-agent">Deploying the agent</h3>
+<p>Once you have created a tunnel, the next step is to deploy the cloudflared agent to a network that can access the application locally. The overview tab for the tunnel provides instructions for most operating systems. Below is an example using docker compose:</p>
+
+<div>
+    <code class="custom-codeblock">
+---
+version: "3"
+networks:
+  frontend:
+    proxynet: true
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CF_TOKEN}
+    networks:
+      - proxynet
+    </code>
+</div>
+
+<p>The application authenticates to Cloudflare servers using a token. This token should be considered a secret and protected using an environment variable. In the above example, we use ${CF_TOKEN}. You can find your token in the tunnel overview page. The container has also been added to the proxynet network, which is where the application is hosted.</p>
+
+<h3 id="add-an-application">Add an Application</h3>
+<p>The next step will be to add the application to your tunnel. This can be done from the public hostnames tab on the tunnel configuration menu. Let’s use Home Assistant running locally over port 8123 as an example:</p>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/addApp.png" /></p>
+
+<p>At this point if everything is working, the application should be accessible from external networks.</p>
+
+<h3 id="setup-an-authentication-provider">Setup an Authentication Provider</h3>
+<p>It is a good idea to add an authentication provider, especially one that protects against brute force attacks for any application that is publicly available. To do this navigate to <strong>Settings</strong> –&gt; <strong>Authentication</strong>. Cloudflare supports a number of providers:</p>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/addAuth.png" /></p>
+
+<h3 id="setup-access-policies">Setup Access Policies</h3>
+<p>The final step is to setup some access policies. These help to limit who can access your application, where they can access it, and more! To get started, click on the applications menu on the sidebar and add a self hosted app.</p>
+
+<p><img class="center" width="75%" src="/assets/images/posts/cloudflared/addPolicy.png" /></p>
+
+<p>Make sure to select your authentication method that we setup in the previous step before continuing to the policy page. Each app will have its own policy, but policy groups can be created to quickly select between different templates based on how risky the application may be. For detailed information on policies, please see <a href="https://developers.cloudflare.com/cloudflare-one/policies/access/">cloudflared docs</a>.</p>
+
+<p>Consider adding rules that:</p>
+<ul>
+  <li>Block countries that you likely will not access from</li>
+  <li>Use the WARP client to provide device posture checks</li>
+  <li>Add MFA</li>
+  <li>Block bots or other reputation filters</li>
+</ul>
+
+  </div>
+  <a href="/2022/09/25/cloudflared/" hidden></a>
+</article>
+</body><footer>
+    <div class="custom-footer custom-link-cyan drac-text drac-text-xs drac-text-center drac-line-height drac-text-cyan drac-p-lg">
+        <p>ursamajor.technology © 2021</p>
+        <p>Powered by GitHub, <a href="https://www.buymeacoffee.com/ursamajor">Mary Lou's Coffee</a>, and <a href="https://github.com/ursaMaj0r/www-ursamajor-technology">Code</a>.
+        </p>
+    </div>
+</footer></html>
