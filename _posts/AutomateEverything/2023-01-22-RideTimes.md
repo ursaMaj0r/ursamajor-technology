@@ -430,4 +430,4 @@ Below is the Node Red automation that will be used to determine which rides are 
 ## RocketChat
 Every 30 minutes the flow is configured to send a notification to a Rocket Chat channel. This can easily be swapped out for Slack, Discord, Mattermost, or Teams. It may also make sense to add a webhook that can be used to trigger the automation on demand. In this example, the automation will be triggered any time that the word "rides" is posted in the channel.
 
-<img class="center" width="75%" src="/assets/images/posts/RideAlerts/ra-alert.png"/>
+<img class="center" width="75%" src="/assets/images/posts/RideAlerts/ra-alert.png"/> 
