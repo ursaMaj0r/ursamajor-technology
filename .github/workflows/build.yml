@@ -16,7 +16,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'no-ci')"
     steps:
       - name: Checkout Resources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.1.0
         with:
           persist-credentials: false
       
