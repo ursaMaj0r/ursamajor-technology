@@ -26,9 +26,9 @@ jobs:
           node-version: '14'
 
       - name: Setup Ruby         
-        uses: actions/setup-ruby@v1.1.3
+        uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.0
       
       - name: Cache NPM
         uses: actions/cache@v2.1.6
